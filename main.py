@@ -1124,4 +1124,4 @@ from random import randint
 # github.com зарегистрироваться
 
 
-
+print("проверка репозитория")
