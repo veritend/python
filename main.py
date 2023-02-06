@@ -1123,7 +1123,6 @@
 
 # github.com зарегистрироваться
 
-
 # print("проверка репозитория")
 
 # import math
@@ -1417,5 +1416,452 @@
 #             t += 1
 #         print()
 
+# def summa(a, b, c):
+#     sm = a + b + c
+#     avg = sm / 3
+#     return avg
+#
+#
+# a = summa(1, 2, 3)
+# print(a ** 2)
 
 
+# def digits_sum(n, even=True):
+#     s = 0
+#     while n > 0:
+#         cur_digit = n % 10
+#         if even and cur_digit % 2 == 0:
+#             s += cur_digit
+#         elif not even and cur_digit % 2:
+#             s += cur_digit
+#         n //= 10
+#     return s
+#
+#
+# print("сумма четных цифр:")
+# print(digits_sum(9874023))
+# print(digits_sum(38271))
+# print(digits_sum(123456789))
+# print("Сумма нечетных цифр:")
+# print(digits_sum(9874023, even=False))
+# print(digits_sum(39271, even=False))
+# print(digits_sum(123456789, even=False))
+
+
+# lt1 = [1, 2, 3]
+# lt2 = [1, 2, 3]
+# print(lt1 == lt2)
+# print(lt1 is lt2)
+#
+# print(id(lt1))
+# print(id(lt2))
+#
+# a = 1
+# b = 1
+# print(a == b)
+# print(a is b)
+#
+# print(id(a))
+# print(id(b))
+
+# lt1 = [1, 2, 3]
+# print(id(lt1))
+# lt1.append(4)
+# print(lt1)
+# lt1.pop(1)
+# print(lt1)
+# print(id(lt1))
+
+
+# s = "Hello"
+# print(id(s))
+# s += "World"
+# print(s)
+# print(id(s))
+
+# a = 5
+# print(id(a))
+# a += 1
+# print(a)
+# print(id(a))
+
+
+# s = list("Hello")
+# print(s[1])
+# s[1] = 't'
+# print(s)
+
+
+# def add_number(n):
+#     print(n, "=", id(n))
+#     n += [4]
+#     print(n, "=", id(n))
+#
+#
+# x = [1, 2, 3]
+# print("x:", x, "=", id(x))
+# add_number(x)
+# print("x:", x, "=", id(x))
+
+
+# Картеж
+
+# lst = [1, 2, 3]
+# tpl = (1, 2, 3)
+# print(lst.__sizeof__())
+# print(tpl.__sizeof__())
+
+# print(type(tpl))
+
+# a = (1, 2, 3, 4, 5)
+# print(type(a))
+# b = tuple((1, 2, 3, 4, 5))
+# print(type(b))
+
+
+# tpl = (1, 2, 3, 4, 5, 6, 7)
+# print(tpl)
+# print(tpl[2])
+# # tpl[2] = 10
+# print(tpl[1:3])
+
+# from random import randint
+
+# s = tuple(input("->") for i in range(3))
+# s = tuple(randint(1, 30) for i in range(10))
+# print(s)
+
+# s1 = tuple(2 ** i for i in range(1, 13))
+# print(s1)
+
+# t1 = tuple("hello")
+# t2 = tuple("world")
+# t3 = t1 + t2
+# print(t3)
+# print(t3.count('l'))
+# print(t3.count('a'))
+# print(t3.index('l', 4, -1))
+#
+# ...
+# for i in t3:
+#     print(i, end=" ")
+
+# def slicer(tpl, el):
+#     if el in tpl:
+#         if tpl.count(el) > 1:
+#             first = tpl.index(el)
+#             second = tpl.index(el, first + 1) + 1
+#             return tpl[first:second]
+#         else:
+#             return tpl[tpl.index(el):]
+#     else:
+#         return()
+#
+#
+# print(slicer((1, 2, 3), 8))
+# print(slicer((1, 8, 3, 4, 8, 8, 9, 2), 8))
+# print(slicer((1, 2, 8, 5, 1, 2, 9), 8))
+
+# from random import randint
+#
+#
+# def range_tuple(num1, num2):
+#     return tuple(randint(num1, num2) for j in range(10))
+#
+#
+# tpl1 = range_tuple(0, 5)
+# tpl2 = range_tuple(-5, 0)
+# print(tpl1)
+# print(tpl2)
+# tpl3 = tpl1 + tpl2
+# print(tpl3)
+# print(tpl3.count(0))
+
+
+# t = (10, 11, [1, 2, 3], [4, 5, 6], ['hello', 'world'])
+# print(t, id(t))
+# t[4][0] = "new"
+# t[4].append('hi')
+# print(t, id(t))
+
+# t = (1, 2, 3)
+# # x = t[0]
+# # y = t[1]
+# # z = t[2]
+# x, y, z = t
+# print(x, y, z)
+
+
+# def get_user():
+#     name = "Tom"
+#     age = 22
+#     is_married = False
+#     return name, age, is_married
+
+
+# user = get_user()
+# print(user)
+# print(user[0])
+# print(user[1])
+# print(user[2])
+# first_name, year, married = user
+# first_name, year, married = get_user()
+# # print(first_name, year, married)
+# first_name = get_user()[0:2]
+# print(first_name)
+
+
+# t = (1, 2, 3)
+# del t
+
+
+# lst = [1, 2, 3, 4, 5]
+# print(type(lst))
+# print(lst)
+# tpl = tuple(lst)
+# print(type(tpl))
+# print(tpl)
+# lst = list(tpl)
+# print(type(lst))
+# print(lst)
+
+
+# countries = (
+#     ("Германия", 80.2, (("Берлин", 3.236), ("Гамбург", 1.718))),
+#     ("Франция", 66, (("Париж", 2.2), ("Марсель", 1.6)))
+# )
+#
+# print(countries)
+# for country in countries:
+#     country_name, country_population, cities = country
+#     print("\nСтрана:", country_name, "\nНаселение:", country_population, cities)
+#     for city in cities:
+#         city_name, city_population = city
+#         print('\t город:', city_name, "(население:", city_population, ")", sep="")
+
+
+# Множество (set)
+
+# s = {"banana", "apple", "orange", "banana", "apple"}
+# print(s)
+# print(type(s))
+# print(len(s))
+# lst = ["banana", "apple", "orange", "banana", "apple"]
+# a = set(lst)
+# print(type(a))
+# print(a)
+
+
+# s = {x for x in range(10)}
+# print(s)
+
+
+# def to_set(a):
+#     x = set(a)
+#     n = len(x)
+#     return x,n
+#
+#
+# print(to_set("я обычная строка"))
+# print(to_set([4, 5, 4, 6, 2, 9, 11, 3, 4, 2]))
+
+
+# t = {'red', "green", "blue"}
+# # print("green1" not in t)
+# for i in t:
+#     print(i)
+
+# lst = ['ab_1', 'ac_2', 'bc_1', 'bc_2']
+# # a = {i for i in lst if 'a' in i}
+# a = {'A' + i[1:] if i[0] == 'a' else 'B' + i[1:] for i in lst if i[1] == 'c'}
+# print(a)
+#
+# for i in lst:
+#     if i[1] == 'c':
+#         if i[0] == 'a':
+#             print('A' + i[1:])
+#         else:
+#             print('B' + i[1:])
+
+# users = {"Tom", "Alice", "Bob"}
+# users.add("Ann")
+# print(users)
+# # user = "Tom"
+# # if user in users:
+# #     users.remove("Tom")
+# # print(users)
+#
+# # users.discard("Rob")
+# # print(users)
+#
+# # users.pop()
+# # print(users)
+#
+# users.clear()
+# print(users)
+
+
+# a = {0, 1, 2, 3}
+# b = {4, 3, 2, 1}
+# c = a.union(b)
+# c = a | b
+# print(c)
+# a |= b
+# print(a)
+# c = a & b
+# print(c)
+# a &= b
+# print(a)
+# c = a ^ b
+# print(c)
+
+
+
+
+# s1 = {1, 2}
+# s2 = {3}
+# s3 = {4, 5}
+# s4 = {3, 2, 6}
+# s5 = {6}
+# s6 = {7, 8}
+# s7 = {9, 8}
+#
+# # s = s1.union(s2, s3, s4, s5, s6, s7)
+# s = s1 | s2 | s3 | s4 | s5 | s6 | s7
+# print(s)
+# print(len(s))
+# print(min(s))
+# print(max(s))
+
+# a = set(input())
+# b = set(input())
+# c = a | b
+# print(c)
+#
+# str1 = "Hello"
+# str2 = "How are you"
+# s1 = set(str1)
+# s2 = set(str2)
+# s3 = s1 & s2
+# print(s3)
+
+
+# a = {0, 1, 2, 3, 4}
+# b = {3, 2, 1}
+# print(a <= b)
+
+# drawing = {"Марина", "Женя", "Света"}
+# music = {"Костя", "Женя", "Илья"}
+#
+# one = drawing ^ music
+# print(one)
+#
+# both = drawing & music
+# print(both)
+#
+# drawing = drawing - both
+# print(drawing)
+
+
+# frozenset (замороженное множество)
+
+# s = frozenset([1, 2, 3, 4, 5])
+# print(s)
+#
+# a = frozenset({"hello", "world"})
+# print(a)
+
+
+# Словарь (dict)
+
+# s = [1, 2, 3]
+# d = {"one": 1, "two": 2, "three": 3}
+# print(s[1])
+# print(d["two"])
+
+
+# d = {"one": 1, "two": 2}
+# print(d)
+# print(type(d))
+#
+# d1 = dict(one=1, two=2)
+# print(d1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# d = {"one": 1, "two": 2, "three": 3}
+# print(list(d))
+# lst = ['one', 'two', 'three']
+# # print(dict(lst))
+#
+# a = [
+#     ('one', 1),
+#     ('two', 2),
+#     ('three', 3),
+# ]
+# print(dict(a))
+
+# d = {"one": 45, 0: "text", (1, 2.3): "Кортеж", 43: [2, 3, 6, 7], 1: "text", True: 1}
+# print(d[43])
+
+# from random import randint
+#
+# # d = {i: i ** 2 for i in range(2, 7)}
+# # d = {i: randint(1, 100) for i in range(7)}
+# # print(d)
+# # d = {str(i) + ")": randint(1, 100) for i in range (3)}
+# d = {input("n ="): input("-> ") for i in range(3)}
+# print(d)
+
+
+# d = {"one": 1, "two": 2, "three": 3}
+# print(d)
+# d['two'] = 200
+# d['one'] += 100
+# print(d)
+#
+# for key in d:
+#     print(key, ":", d[key])
+
+
+# from math import pi
+#
+#
+# def square():
+#     t = str(input("Введите для какой фигуры хотите найти площадь (прямоугольник, треугольник, круг) \n->"))
+#     if t == "прямоугольник":
+#         a = int(input("a: "))
+#         b = int(input("b: "))
+#         s = a * b
+#         print("Площадь: ", s)
+#     elif t == "треугольник":
+#         a = int(input("Основание: "))
+#         h = int(input("Высота: "))
+#         s = a * h / 2
+#         print("Площадь: ", s)
+#     elif t == "круг":
+#         r = int(input("Радиус: "))
+#         s = pi * r * r
+#         print(round(s, 2))
+#     else:
+#         print("Нет такой фигуры")
+#         square()
+#
+#
+# square()
+
+from random import randint
+
+s = list(randint(1, 20) for i in range(10))
+print(s)
+print("\nMin: ", min(s), "\nMax: ", max(s))
