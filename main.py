@@ -1089,7 +1089,7 @@
 # for x, y, z in [[1, 2, 1], [3, 4, 2], [5, 6, 3], [7, 8, 4]]:
 #     print(z, ")", x, "+", y, "=", x + y)
 
-from random import randint
+# from random import randint
 #
 # matrix = [[randint(1, 30) for x in range(5)] for y in range(3)]
 #
@@ -1124,4 +1124,298 @@ from random import randint
 # github.com зарегистрироваться
 
 
-print("проверка репозитория")
+# print("проверка репозитория")
+
+# import math
+#
+# num1 = math.sqrt(4)
+# num2 = math.ceil(3.2)
+# num3 = math.floor(3.8)
+# num4 = math.pi
+#
+# print(num1)
+# print(num2)
+# print(num3)
+# print(num4)
+#
+# print(dir(math))
+
+# import math as m
+
+# from math import *
+
+
+# from math import sqrt
+#
+# num1 = sqrt(4)
+# print(num1)
+
+# from math import pi
+#
+# r = int(input("Введите радиус окружности:"))
+# print(round(r*pi*2, 2))
+
+
+# import time
+# import locale
+
+# locale.setlocale(locale.LC_ALL, "ru")
+#
+# # print(dir(time))
+#
+# s = time.time()
+# print(s)
+#
+# local = time.ctime()
+# print(local)
+#
+# res = time.localtime()
+# print(res)
+#
+# print(res.tm_mday, ".0", res.tm_mon, ".", res.tm_year, sep="")
+#
+# print(time.strftime("%d.%m.%Y"))
+# print(time.strftime("Сегодня: %B %d, %Y.", time.localtime()))
+
+
+# pause = 5
+# print("Программа запущена")
+# time.sleep(pause)
+# print("Программа завершена")
+
+# text = input("Название напоминания: ")
+# t = float(input("Через сколько минут:"))
+# t = t * 60
+# time.sleep(t)
+# print(text)
+
+
+# start = time.monotonic()
+# time.sleep(5)
+# finish = time.monotonic()
+# res = finish - start
+# print(res)
+
+
+# def hello(name):
+#     print("Hello", name)
+#
+#
+# hello("Irina")
+# hello("Ivan")
+
+
+# def get_sum(a, b):
+#     return a + b
+#
+#
+# x = 2
+# y = 5
+# res = get_sum(x, y)
+# # get_sum("2", "5")
+# print(res)
+
+# import math
+#
+#
+# def symbol(count, a, b):
+#     for i in range(count):
+#         if i % 2 == 0:
+#             print(a, end="")
+#         else:
+#             print(b, end="")
+#     print()
+#
+#
+# symbol(9, "+", "-")
+# symbol(7, "X", "@")
+
+
+# x = int(input("Введите первое число: "))
+# y = int(input("Введите второе число: "))
+#
+#
+# def gg(a, b):
+#     if a > b:
+#         return a - b
+#     if a < b:
+#         return a + b
+#     return "a = b"
+#
+#
+# gg(x, y)
+# print(gg(x, y))
+
+
+# def cub(a):
+#     return a * a * a
+#
+#
+# for i in range(1, 11):
+#     print(i, "в кубе =", cub(i))
+
+
+# def change(lst):
+#     # lst[0], lst[-1] = lst[-1], lst[0]
+#     a = lst.pop()
+#     b = lst.pop(0)
+#     lst.append(b)
+#     lst.insert(0, a)
+#
+#     return lst
+#
+#
+# print(change([1, 2, 3]))
+# print(change([9, 12, 33, 54, 105]))
+# print(change(['c', 'л', 'о', 'н']))
+
+
+# def func(x, y):
+#     if x > y:
+#         return True
+#     else:
+#         return False
+#
+#
+# print(func(10, 5))
+# print(func(10, 15))
+#
+#
+# a = 10
+# b = 5
+#
+# if func(a, b):
+#     print("Первое число больше второго")
+# else:
+#     print("Второе число больше второго")
+
+
+# def check_password(password):
+#     has_upper = False
+#     has_lower = False
+#     has_num = False
+#
+#     for ch in password:
+#         if "A" <= ch <= "Z":
+#             has_upper = True
+#         elif "a" <= ch <= "z":
+#             has_lower = True
+#         elif "0" <= ch <= "9":
+#             has_num = True
+#
+#     if len(password) >= 8 and has_upper and has_lower and has_num:
+#         return True
+#     return False
+#
+#
+# p = input("Введите пароль: ")
+# if check_password(p):
+#     print("Это надежный пароль")
+# else:
+#     print("Это ненадежный пароль")
+
+# def get_sum(a=0, b=0, c=1, d=0):
+#     return a + b + c + d
+#
+#
+# print(get_sum(1, 5, 2, 7))
+# print(get_sum(1, 5, 2))
+# print(get_sum(1, 5))
+# e = 2
+# print(get_sum(1, 5, d=e))
+# print(get_sum())
+
+
+# def display_info(name, age):
+#     print("Name: ", name, "\nAge: ", age, end="\n\n")
+#
+#
+# display_info("Ira", 23)
+# display_info(23, "Ira")
+# display_info(age=23, name="Ira")
+
+
+# s1 = []
+# s2 = []
+# y = 0
+# n = int(input("Введите длину списка: "))
+# for num in range(n):
+#     x = int(input("Введите элемент списка: "))
+#     s1.append(x)
+#     if x > 0:
+#         s2.append(x)
+#     if x > u:
+#         u = x
+#     else:
+#         ...
+# print("Список: ", s1)
+# print("Новый список, состоящий из положительных чисел: ", s2)
+# print("Наибольший элемент списка: ", y)
+
+
+# s3 = []
+# d = int(input("Введите элементы списка: \nn ="))
+# for num in range(d):
+#     y = int(input("-> "))
+#     s3.append(y)
+# k = int(input("Введите индекс: \nk = "))
+# c = int(input("Введите значение: \nc = "))
+# s3.insert(k, c)
+# print(s3)
+
+
+# s4 = []
+# g = False
+# f = int(input("Введите длину списка: "))
+# for num in range(f):
+#     z = int(input("Введите элемент списка: "))
+#     s4.append(z)
+# ch = int(input("Введите число: \nch = "))
+# for num in range(f):
+#     if ch == num:
+#         print("Число присутствует в элементах списка")
+#         g = True
+# if g == False:
+#     print("Числа нет в элементах списка")
+
+# from random import randint
+# s = []
+# y = 0
+# for num in range(20):
+#     x = randint(0, 100)
+#     s.append(x)
+#     y += x
+# print(s)
+# print("Summa: ", y)
+
+# from random import randint
+# s = []
+# p = 6
+# for num in range(p):
+#     for num1 in range(p):
+#         x = randint(0, 10)
+#         s.append(x)
+#         print(x, end="\t\t")
+#     print()
+# print()
+# s1 = [0, 8, 10, 0, 10, 7]
+# print(s1)
+# print()
+# y = 0
+# t = 0
+# for num2 in range(p):
+#     if num2 % 2 == 0 or num2 == 0:
+#         for num3 in range(p):
+#             del s[t]
+#             s.insert(t, s1[num3])
+#             print(s[t], end="\t\t")
+#             t += 1
+#         print()
+#     else:
+#         for num4 in range(p):
+#             print(s[t], end="\t\t")
+#             t += 1
+#         print()
+
+
+
