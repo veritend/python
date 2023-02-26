@@ -1510,7 +1510,7 @@
 # tpl = (1, 2, 3)
 # print(lst.__sizeof__())
 # print(tpl.__sizeof__())
-
+#
 # print(type(tpl))
 
 # a = (1, 2, 3, 4, 5)
@@ -1715,9 +1715,6 @@
 # c = a ^ b
 # print(c)
 
-
-
-
 # s1 = {1, 2}
 # s2 = {3}
 # s3 = {4, 5}
@@ -1787,18 +1784,6 @@
 # d1 = dict(one=1, two=2)
 # print(d1)
 
-
-
-
-
-
-
-
-
-
-
-
-
 # d = {"one": 1, "two": 2, "three": 3}
 # print(list(d))
 # lst = ['one', 'two', 'three']
@@ -1834,7 +1819,7 @@
 #     print(key, ":", d[key])
 
 
-# from math import pi
+# from math import pi  //dz
 #
 #
 # def square():
@@ -1860,8 +1845,1331 @@
 #
 # square()
 
-from random import randint
+# from random import randint
+#
+# s = list(randint(1, 20) for i in range(10))
+# print(s)
+# print("\nMin: ", min(s), "\nMax: ", max(s))
 
-s = list(randint(1, 20) for i in range(10))
-print(s)
-print("\nMin: ", min(s), "\nMax: ", max(s))
+# d = {"one": 1, "two": 2, "three": 3}
+# print(d)
+# d['two'] = 200
+# d['one'] += 100
+# print(d)
+
+# key = "two1"
+# try:
+#     del d[key]
+# except KeyError:
+#     print("Элемента с ключом" + key + "нет в словаре")
+# print(d)
+
+# d = dict()
+# d[1] = input("->")
+# d[2] = input("->")
+# d[3] = input("->")
+# d[4] = input("->")
+
+# d = {i: input("-> ") for i in range(1, 5)}
+# print(d)
+# dislike = int(input("Какой ключ исключить: "))
+# del d[dislike]
+# print(d)
+
+
+# goods = {
+#     "1": ["Core-i3-4330", 9, 4500],
+#     "2": ["Core-i5-4670K", 3, 8500],
+#     "3": ["AMD FX-6300", 6, 3700],
+#     "4": ["Pentium G3220", 8, 2100],
+#     "5": ["Core-i5-3450", 5, 6400],
+# }
+# for i in goods:
+#     print(i, ") ", goods[i][0], " - ", goods[i][1], " шт. по ", goods[i][2], "руб.", sep='')
+#
+# while True:
+#     n = input("№: ")
+#     if n != '0':
+#         qty = int(input("Количество: "))
+#         goods[n][1] = qty
+#     else:
+#         break
+# for i in goods:
+#     print(i, ") ", goods[i][0], " - ", goods[i][1], " шт. по ", goods[i][2], "руб.", sep='')
+
+# d = {"a": 1, "b": 2, "c": 3}
+# d2 = d.copy()
+# d2 = d
+# print("D =", d)
+# print("D =", d2)
+# d['b'] = 5
+# d2["e"] = 7
+# print("D =", d)
+# print("D =", d2)
+
+# d = {"a": 1, "b": 2, "c": 3}
+# print(d["e"])
+# value = d.get("b1", 'Такого ключа нет')
+# print(value)
+
+
+# d = {"a": 1, "b": 2, "c": 3}
+# print(d.keys())   # ключи
+# print(d.values())   # значение
+# print(d.items())   # ключи + значения
+#
+# for i in d:
+#     print(i)
+#
+# print(list(d.items()))
+#
+# for k, v in d.items():
+#     print(k, v)
+
+# d = {"a": 1, "b": 2, "c": 3}
+# item = d.setdefault('e', 100)   # устанавливает значение по умолчанию
+# # item = d.pop('b')
+# # item = d.popitem()
+# # d.clear()
+# # print(item)
+# d.update([("r", 7), ('t', 6)])
+# d.update({'r': 8, 'c': 6})
+# print(d)
+
+# x = {'a':1,'b':2}
+# y = {'b':3,'c':4}
+# # z = x.copy()
+# # z.update(y)
+# z = x | y
+# print(z)
+
+# d = {'name': 'Kelly', "age": 25, "salary": 8000, "city": "New York"}
+# # new_d = dict()
+# # new_d['name'] = d.pop("name")
+# # new_d['salary'] = d.pop("salary")
+# # print(d)
+# # print(new_d)
+#
+# d['location'] = d.pop('city')
+# print(d)
+
+
+# a = {
+# #     'first':{
+# #         1: "one",
+# #         2: "two",
+# #         3: "three",
+# #     },
+# #     'second': {
+# #         4: "four",
+# #         5: "five"
+# #     }
+# # }
+# # print(a)
+# # for x in a:
+# #     print(x)
+# #     for y in a[x]:
+# #         print("\t", y, ": ", a[x][y], sep="")
+
+
+# sales = {
+#     'John': {"N": 3056, "S": 8463, "E": 8441, "W": 2694},
+#     'Tom': {"N": 4832, "S": 6786, "E": 4737, "W": 3612},
+#     'Anne': {"N": 5239, "S": 4802, "E": 5820, "W": 1859},
+#     'Fiona': {"N": 3904, "S": 3645, "E": 8821, "W": 2451},
+# }
+# for x in sales:
+#     print(x)
+#     for y in sales[x]:
+#         print("\t", y, ":", sales[x][y], sep="")
+# person = input("Имя: ")
+# region = input("Регион: ")
+# print(sales[person][region])
+# new_data = int(input("Новое значение: "))
+# sales[person][region] = new_data
+# print(sales[person][region])
+
+# d = {"a": 1, "b": 2, "c": 3, "d": 4}
+# print({key: value for key, value in d.items()})
+# print({key: value for key, value in d.items() if value <= 2})
+
+# a = ['one', 1, 2, 3, 'two', 10, 20, 'three', 15, 36, 60, 'four', -20]
+#
+# d = dict()
+# s = None
+#
+# for i in a:
+#     if type(i) == str:
+#         d[i] = []
+#         s = i
+#     else:
+#         d[s].append(i)
+# print(d)
+#
+#
+# b = 5
+# print(b)
+# b = "Hello"
+# print(b)
+
+# a = [12, 1, 2]
+# b = ['Dec', 'Jan', 'Feb']
+# c = [4.0, 8.5, 4.9]
+# # d = dict(zip(a, b))
+# # f = {k: v for k, v in zip(a, b)}
+# # print(f)
+# # print(d)
+#
+# f = zip(a, b, c)
+# print(list(f))
+
+# dict_one = {'name': 'Igor', 'email': 'igor@gmail.com', 'job': 'Consultant'}
+# dict_two = {'name': 'Irina', 'email': 'irina@gmail.com', 'job': 'Manager'}
+# for (k1, v1), (k2, v2) in zip(dict_one.items(), dict_two.items()):
+#     print(k1, "->", v1)
+#     print(k2, "->", v2)
+
+# a = {'b': 2, 'a': 1, 'd': 4, 'c': 3}
+# d = list(a.items())
+# print(d)
+# n, m = zip(*d)
+# print(n)
+# print(m)
+# c = list(zip(m, n))
+# print(c)
+# c.sort()
+# print(c)
+# print(dict(c))
+# c = {v: k for k, v in c}
+# print(c)
+
+# month = ['January', "February", "March"]
+# total_sales = [52000.00, 51000.00, 48000.00]
+# prod_cost = [46800.00, 45900.00, 43200.00]
+#
+# for sales, costs, m in zip(total_sales, prod_cost, month):
+#     profit = sales - costs
+#     print("Чистая прибыль в", m, "=", profit)
+
+# one = {'a': 1, 'b': 2}
+# two = {'c': 3, 'd': 4}
+# print({**one, **two})   # {}
+
+
+# data = ["red", "green", "blue"]
+# ind = 1
+# for i in data:
+#     print(ind, i)
+#     ind += 1
+# for n, i in enumerate(data, 1):
+#     print(n, i)
+
+# dict_one = {'name': 'Igor', 'email': 'igor@gmail.com', 'job': 'Consultant'}
+#
+# for i, (j, v) in enumerate(dict_one.items(), 1):
+#     print(i, j, "->", v)
+#
+# for i, v in enumerate(dict_one.values(), 1):
+#     print(i, "->", v)
+
+
+# def func(*args):
+#     return args
+#
+#
+# print(func(5))
+# print(func(5, 3, 2, 7))
+
+# def summa(*params):
+#     res = 0
+#     for i in params:
+#         res += i
+#     return res
+#
+#
+# print(summa(1, 2, 3, 4, 5))
+# print(summa(3, 4, 5))
+
+
+# def to_dict(*args):
+#     return {k: k for k in args}
+#
+#
+# print(to_dict(1, 2, 3, 4))
+# print(to_dict('grey', (2, 17), 3.11, -4))
+
+
+# def to_dict(*args):
+#     avg = sum(args) / len(args)
+#     print(avg)
+#     return [x for x in args if x < avg]
+#
+#
+# print(to_dict(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# print(to_dict(3, 6, 1, 9, 5))
+
+# def func(a, *args):
+#     return a, args
+#
+#
+# print(func(2))
+# print(func(2, 5, 7, 8, 9, 4))
+
+
+# def print_scores(student, *scores):
+#     print("\nStudent Name:", student)
+#     # for score in scores:
+#     #     print(score, end=' ')
+#     print(*scores)
+#     print()
+#
+#
+# print_scores("Jonathan", 10, 95, 88, 92, 99)
+# print_scores("Rick", 96, 20, 33, 56)
+
+
+# def func(**kwargs):
+#     return kwargs
+#
+#
+# print(func(a=1, b=2, c=3))
+
+
+# def intro(**data):
+#     for k, v in data.items():
+#         print(k, "is", v)
+#     print()
+#
+#
+# intro(name='Irina', surname='Sharma', age=22)
+# intro(name='Igor', surname='Wood', email='igor@mail.com', age=25, phone=9876543210)
+
+
+# my_dict = {"one": "first"}
+#
+#
+# def db(**kwargs):
+#     # global my_dict
+#     # my_dict = my_dict | kwargs
+#     # return my_dict
+#     my_dict.update(kwargs)
+#
+#
+# db(k1=22, k2=31, k3=11, k4=91)
+# db(name='Bob', age=31, weight=61, eyer_color='gray')
+# print(my_dict)
+
+
+# def func1(*args):
+#     print(args[0])
+#
+#
+# func1(1, 2, 3, 4, 5, 6)
+# func1(5)
+
+# def func(first, *args, c=100, **kwargs):
+#     return first, args, c, kwargs
+#
+#
+# print(func(5, 4, 8, 9, 7, a=6, b=2, c=10))
+
+
+# Области видимости (scope)
+
+# name = 'Tom'
+# surname = ""
+#
+#
+# def hi():
+#     global name, surname
+#     name = "Sam"
+#     surname = "johnson"
+#     print("Hello", name, surname)
+#
+#
+# def bye():
+#     print("good bye", name)
+#
+#
+# print(name)
+# hi()
+# bye()
+# print(name)
+# print(surname)
+
+# i = 5
+#
+#
+# def func(arg=i):
+#     print(arg)
+#
+#
+# i = 6
+# func()
+
+# x = 3
+#
+#
+# def add_two(a):
+#     x = 2
+#
+#     def add_some():
+#         return a + x
+#     return add_some()
+#
+#
+# print(add_two(3))
+
+
+# import builtins
+#
+# names = dir(builtins)
+#
+# for t in names:
+#     print(t)
+
+
+# min = 5
+# print(min)
+# a = [4, 5, 7, 8, 9]
+# print(a)
+# print(min(a))
+
+# def outer_func(who):
+#     def inner_func():
+#         print("Hello,", who)
+#
+#     inner_func()
+#
+#
+# outer_func("World!")
+
+
+# def fun1():
+#     a = 6
+#
+#     def fun2(b):
+#         a = 4
+#         print("Сумма:", a + b)
+#
+#     print('a =', a)
+#     fun2(4)
+#
+#
+# fun1()
+
+
+# x = 25
+# t = 0
+#
+#
+# def fn():
+#     global t
+#     a = 30
+#
+#     def inner():
+#         nonlocal a
+#         a = 35
+#
+#     inner()
+#     t = a
+#
+#
+# fn()
+# z = x + t
+# print(z)
+
+
+# def fn1():
+#     x = 25
+#
+#     def fn2():
+#         x = 33
+#
+#         def fn3():
+#             nonlocal x
+#             x = 55
+#
+#         fn3()
+#         print("fn2.x =", x)
+#
+#     fn2()
+#     print("fn1.x =", x)
+#
+#
+# fn1()
+
+
+# def outer(a1, a2, b1, b2):
+#     a = 0
+#     b = 0
+#
+#     def inner():
+#         nonlocal a, b
+#         a = a1 + a2
+#         b = b1 + b2
+#
+#     inner()
+#     return [a, b]
+#
+#
+# print(outer(2, 3, 5, 7))
+
+
+# x = ('ab', 'abcd', 'cde', 'abc', 'def')
+#
+# s = input("s =")
+# for i in x:
+#     if s == i:
+#         print(s)
+
+# s = tuple(input("Введите по порядку, без пробелов, элементы кортежа: "))
+# t = set(s)
+# u = 0
+# for i in s:
+#     for j in t:
+#         if i == j:
+#             u += 1
+#             print(j, "=", u)
+
+# s = 0
+#
+#
+# def rect_paral_square(a, b, c):
+#     def rect_square(i, j):
+#         return i * j
+#     global s
+#     s = 2 * (rect_square(a, b) + rect_square(a, c) + rect_square(b, c))
+#
+#
+# print(rect_paral_square(2, 4, 6))
+# print(s)
+# print(rect_paral_square(5, 8, 2))
+# print(s)
+# print(rect_paral_square(1, 6, 8))
+# print(s)
+
+# def rect_paral_square(a, b, c):
+#     s = 0
+#
+#     def rect_square(i, j):
+#         nonlocal s
+#         s += i * j
+#
+#     rect_square(a, b)
+#     rect_square(a, c)
+#     rect_square(b, c)
+#     # s = 2 * (rect_square(a, b) + rect_square(a, c) + rect_square(b, c))
+#     return 2 * s
+#
+#
+# print(rect_paral_square(2, 4, 6))
+#
+# print(rect_paral_square(5, 8, 2))
+#
+# print(rect_paral_square(1, 6, 8))
+
+
+# Замыкание
+
+# def outer(n):
+#     def inner(x):
+#         return n + x
+#
+#     return inner
+#
+#
+# add1 = outer(5)
+# print(add1(10))
+#
+# add2 = outer(6)
+# print(add2(11))
+#
+# print(outer(5)(10))
+
+
+# def func1():
+#     a = 1
+#     b = 'line'
+#     c = [1, 2, 3]
+#
+#     def func2():
+#         nonlocal a, b
+#         c.append(4)
+#         a = a + 1
+#         b = b + "_new"
+#         return a, b, c
+#
+#     return func2
+#
+#
+# func = func1()
+# print(func())
+
+
+# def func(city):
+#     s = 0
+#
+#     def incr():
+#         nonlocal s
+#         s += 1
+#         print(city, s)
+#
+#     return incr
+#
+#
+# res1 = func('Москва')
+# res1()
+# res1()
+# res2 = func('Сочи')
+# res2()
+
+
+# students = {
+#     'alice': 98,
+#     'bob': 67,
+#     'Chris': 85,
+#     'David': 75,
+#     'Ella': 54,
+#     'Fiona': 35,
+#     'Grace': 69
+# }
+#
+#
+# def make(lower, upper):
+#     def student(exam):
+#         return {k: v for k, v in exam.items() if lower <= v < upper}
+#
+#     return student
+#
+#
+# A = make(80,101)
+# B = make(70, 80)
+# C = make(50, 70)
+# D = make(0, 50)
+#
+#
+# print(A(students))
+# print(B(students))
+# print(C(students))
+# print(D(students))
+
+# Анонимные функции(lambda)
+
+
+# def name(x, y):
+#     return x + y
+#
+#
+# print(name(3, 5))
+# print((lambda x, y: x + y)(1, 2))
+# print()
+
+# func = lambda x, y: x + y
+#
+# print(func(1, 2))
+# print(func('a', 'b'))
+
+
+# print((lambda x, y: x ** 2 + y ** 2)(2, 5))
+
+# print((lambda *args: args)(1, 2, 3, 4, 5, 6))
+
+# c = (lambda x: x * 2, lambda x: x * 3, lambda x: x * 4)
+#
+# for t in c:
+#     print(t("abc_"))
+
+
+# def outer1(n):
+#     return lambda x: n + x
+#
+# add2 = outer1(5)
+# print(add2(10))
+#
+#
+# outer2 = lambda n: lambda x: x + n
+# add3 = outer2(5)
+# print(add3(10))
+#
+# print((lambda n: lambda x: x + n)(5)(10))
+#
+# print((lambda n: lambda y: lambda x: x + n + y)(5)(10)(10))
+
+# def func(i):
+#     return i[1]
+#
+# d = {'d': 10, 'b': 15, 'c': 4}
+#
+# list_d = list(d.items())
+# print(list_d)
+# # list_d.sort(key=lambda i: i[1])
+# list_d.sort(key=func)
+# print(list_d)
+# print(dict(list_d))
+
+
+# players = [
+#     {'name': 'Антон', 'last name': 'Бирюков', 'rating': 9},
+#     {'name': 'Алексей', 'last name': 'Бодня', 'rating': 10},
+#     {'name': 'Федор', 'last name': 'Сидоров', 'rating': 4},
+#     {'name': 'Михаил', 'last name': 'Семенов', 'rating': 6},
+#
+# ]
+#
+# res = sorted(players, key=lambda item: item['last name'])
+# print(res)
+# res = sorted(players, key=lambda item: item['rating'], reverse=True)
+# print(res)
+# res = sorted(players, key=lambda item: item['rating'])
+# print(res)
+
+# a = [lambda x, y: x + y, lambda x, y: x - y, lambda x, y: x / y]
+#
+# print(a[0](12, 3))
+
+
+# a = {'one': lambda x: x - 1, 'two': lambda x: x * (-1), 'three': lambda x: x ** 5}
+#
+# b = {-3, 10, 0, 4}
+#
+# for i in b:
+#     if i < 0:
+#         print(a['two'](i))
+#     elif i > 0:
+#         print(a['one'](i))
+#     else:
+#         print(a['three'](i))
+
+
+# d = {
+#      1: lambda: print('Понедельник'),
+#      2: lambda: print('Вторник'),
+#      3: lambda: print('Среда')
+# }
+#
+# d[2]()
+
+# print((lambda a, b, c: a if a < b and a < c else b if b < c and b < a else c)(5, 13, 33))
+
+
+# map(func, iterables), filter(func, iterables)
+
+
+# def mult(l):
+#     return l * 2
+#
+#
+# lst = [2, 8, 12, -5, -10]
+#
+# a = list(map(mult, lst))
+# print(a)
+#
+# a1 = list(map(lambda t: t * 2, lst))
+# print(a1)
+
+
+# t = (2.88, -1.75, 100.55)
+#
+# t2 = tuple(map(lambda x: int(x), t))
+# print(t2)
+#
+# t3 = tuple(map(int, t))
+# print(t3)
+
+# areas = [3.564897, 7.4512368, 8.412578, 4.456712, 7.456782, 2.321456]
+#
+# print(list(map(round, areas, [2, 5, 2, 4, 6, 1])))
+
+# st = ['a', 'b', 'c', 'd', 'e']
+# num = [1, 2, 3, 4, 5]
+#
+# print(list(map(lambda x, y: (x, y), st, num)))
+#
+# l1 = [1, 2, 3]
+# l2 = [4, 5, 6]
+# print(list(map(lambda x, y: x + y, l1, l2)))
+#
+# a = l1, l2
+# print(a)
+
+# t = ('abcd', 'abc', 'cdrfg', 'def', 'ghi')
+# t2 = tuple(filter(lambda s: len(s) == 3, t))
+# print(t2)
+#
+#
+# b = [66, 90, 68, 59, 76, 60, 88, 74, 81, 65]
+# res = list(filter(lambda s: s > 75, b))
+# print(res)
+
+# from random import randint
+#
+# lst =[randint(1, 20) for i in range(10)]
+# print(lst)
+# print("[10; 20] = ", list(filter(lambda s: 10 <= s <= 20, lst)))
+
+# print(list(map(lambda x: x ** 2, filter(lambda x: x % 2, range(10)))))
+
+
+# декораторы
+
+# def hello():
+#     return 'Hello, I am func "hello"'
+#
+#
+# def super_func(func):
+#     print('Hello, I am func "super_hello"')
+#     print(func())
+
+
+# super_func(hello)
+
+
+# def hello():
+#     return 'Hello, I am func "hello"'
+#
+#
+# test = hello()
+# print(test)
+# print(type(test))
+
+
+# def my_decorator(func):
+#     def func_wrapper():
+#         print('Код до функции')
+#         func()
+#         print('Код после функции')
+#
+#     return func_wrapper
+#
+#
+# @my_decorator  # декоратор
+# def func_test():  # декорируемая функция
+#     print('Тело функции "func_test"')
+#
+#
+# func_test()
+# test = my_decorator(func_test)
+# test()
+
+
+# def bold(fn):
+#     def wrap():
+#         return "<b>" + fn() + "</b>"
+#
+#     return wrap
+#
+#
+# def italic(fn):
+#     def wrap():
+#         return "<i>" + fn() + "</i>"
+#
+#     return wrap
+#
+#
+# @italic
+# @bold
+# def hello():
+#     return 'text'
+#
+#
+# print(hello())
+
+
+# def cnt(fn):
+#     count = 0
+#
+#     def wrap():
+#         nonlocal count
+#         count += 1
+#         fn()
+#         print('Вызов функции: ', count)
+#
+#     return wrap
+#
+#
+# @cnt
+# def hello():
+#     print('Hello')
+#
+#
+# hello()
+# hello()
+
+
+# def args_decorator(fn):
+#     def wrap(arg1, arg2):
+#         print()
+#         fn(arg1, arg2)
+#
+#     return wrap
+#
+#
+# @args_decorator
+# def print_full_name(name, surname):
+#     print("Меня зовут:", name, surname)
+#
+#
+# print_full_name("Ирина", "Леонова")
+
+
+# def args_decorator(fn):
+#     def wrap(*args, **kwargs):
+#         print()
+#         fn(*args, **kwargs)
+#
+#     return wrap
+#
+#
+# @args_decorator
+# def print_full_name(a, b, c, study="Python"):
+#     print(a, b, c, "изучают", study, "\n")
+#
+#
+# print_full_name("Ирина", "Борис", "Светлана", study='JavaScript')
+# print_full_name("Владимир", "Екатерина", "Виктор")
+
+# def decor(args1, args2):
+#     def args_dec(fn):
+#         def wrap(x, y):
+#             print(args1, x, args2, y, "=", end=" ")
+#             fn(x, y)
+#
+#         return wrap
+#     return args_dec
+#
+#
+# @decor("Сумма:", '+')
+# def summa(a, b):
+#     print(a + b)
+#
+#
+# @decor("Разность:", '-')
+# def sub(a, b):
+#     print(a - b)
+#
+#
+# summa(5, 2)
+# sub(5, 2)
+
+# print(int("19"))
+# print(int("19.5"))  # ValueError
+
+# print(int("100", 2))
+# print(int("100", 8))
+# print(int("100", 10))
+# print(int("100", 16))
+
+# print(bin(18))  # 0b10010
+# print(oct(18))  # 0o22
+# print(hex(18))  # 0x12
+#
+# print(0b10010)
+# print(0o22)
+# print(0x12)
+
+
+# q = "Pyt"
+# w = "hon"
+# e = q + w
+# print(e)
+# print(e * -3)
+# print("Py1" in e)
+
+
+# s = "Hello"
+# print(s[1])
+# print(s[-5])
+# print(s[1:4])
+# print(s[::-1])
+
+# s = 'python'
+# # s[3] = 't'
+# s = s[:3] + 't' + s[4:]
+# print(s)
+
+
+# def change_to_str(s, c_old, c_new):
+#     s2 = ""
+#     i = 0
+#     while i < len(s):
+#         if s[i] == c_old:
+#             s2 += c_new
+#         else:
+#             s2 += s[i]
+#         i += 1
+#     return s2
+#
+#
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык"
+# str2 = change_to_str(str1, "N", "P")
+# print("str1", str1)
+# print("str2", str2)
+
+# print("Привет")
+# print(u"Привет")
+
+# print("C:\\folder\\file.txt")
+# print(r"C:\folder\file.txt")
+# print(r"C:\folder\file\\"[:-1])
+# print(r"C:\folder\file" + "\\")
+# print("C:\\folder\\file\\")
+
+
+# name = "Дмитрий"
+# age = 25
+#
+# print("Меня зовут ", name, ". Мне", age, " лет", sep="")
+# print("Меня зовут " + name + ". Мне" + str(age) + " лет")
+# print(f"Меня зовут {name}. Мне {age} лет")
+
+# from math import pi
+#
+# print(f"Число PI: {pi}")
+# print(f"Число PI: {round(pi, 2)}")
+# print(f"Число PI: {pi:.2f}")
+
+# x = 10
+# y = 5
+# print(f"{x=}, {y=}")
+# print(f"{x} x {y} / 2 = {x * y / 2}")
+
+
+# a = 74
+# print(f"{{{a}}}")
+
+# dir_name = 'my_doc'
+# file_name = 'data.txt'
+# print(fr'home\{dir_name}\{file_name}')
+
+# s = ""
+# s1 = ''
+# s3 = """"""
+# s4 = ''''''
+
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n"""
+#     return n ** 2
+#
+#
+# print(square(5))
+# print(square.__doc__)
+
+# from math import pi
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цилиндра
+#
+#     Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#
+#     :param r: положительное число, радиус основания цилиндра.
+#     :param h: положительное число, высота цилиндра.
+#     :return: положительное число, площадь цилиндра.
+#     """
+#     return 2 * pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+
+# print(ord('a'))
+# print(ord('#'))
+# print(ord('м'))
+
+# while True:
+#     n = input('=> ')
+#     if n != -1:
+#         print(ord(n))
+#     else:
+#         break
+
+# my_str = "Test string for me"
+# arr = [ord(i) for i in my_str]
+# print("ASCII коды:", arr)
+#
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое:", arr)
+#
+# arr += [ord(x) for x in input("-> ")[:3] if ord(x) not in arr]
+# print(arr)
+#
+# print(arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+# print(chr(97))
+# print(chr(1080))
+
+# a = 122
+# b = 97
+# # if a > b:
+# #     print([chr(i) for i in range(b, a + 1)])
+# # else:
+# #     print([chr(i) for i in range(a, b + 1)])
+#
+# if b > a:
+#     a, b = b, a
+# print([chr(i) for i in range(b, a + 1)])
+# for i in range(b, a + 1):
+#     print(chr(i), end=' ')
+
+
+# print('apple' == 'Apple')
+# print('apple' > 'Apple')
+
+
+# from random import randint
+#
+# short = 7
+# long = 10
+# min_ASCII = 33
+# max_ASCII = 126
+#
+#
+# def random_password():
+#     rand_len = randint(short, long)
+#     res = ''
+#     for i in range(rand_len):
+#         rand_char = chr(randint(min_ASCII, max_ASCII))
+#         res += rand_char
+#
+#     return res
+#
+#
+# print('Случайный пароль', random_password())
+
+#  Методы строк
+# print(dir(list), "\n")
+# print(dir(str))
+
+# s = "hello, WORLD! I am learning Python."
+
+# print(s.capitalize())  # Hello, world! i am learning python.
+# print(s.lower())  # hello, world! i am learning python.
+# print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
+
+# print(s.lower().count('h'))  # подсчет количества вхождений подстроки в строку
+# print(s.find('Python'))  # возвращает индекс, который соответствует началу подстроки или -1 если элемента нет
+# print(s.rindex('h'))  # возвращает последний индекс
+#
+# s = 'один два'
+# one_world = s[:s.find(' ')]
+# print(one_world)
+# two_world = s[s.find(' ') + 1:]
+# print(two_world)
+# print(two_world + ' ' + one_world)
+
+# s1 = 'ab12c59p7dq'
+# digits = []
+# for symbol in s1:
+#     if '1234567890'.find(symbol) != -1:
+#         digits.append(int(symbol))
+#
+#
+# print(digits)
+# digits.append('1')
+# print(digits)
+
+# st = 'the original words and form a written or printed work'
+# ch = 't'
+# if st.count(ch) == 1:
+#     print(st.find(ch))
+# elif st.count(ch) >= 2:
+#     print(st.find(ch), st.rfind(ch))
+
+# s = "hello, WORLD! I am learning Python."
+#
+# print(s.endswith('lo', 0, 5))  # строка заканчивается заданными символами
+# print(s.startswith('hello'))  № строка начинается с заданных символов
+
+# print('abc123'.isalnum())  # определяет ли строка из букв и цифр
+#
+# print('abcABC'.isalnum())  # определяет, состоит ли строка из букв
+# print('Aabc123'.isdigit())  # определяет, состоит ли строка из цифр
+# print('abcABC'.islower())  # определяет ли строка из цифр букв в нижнем регистре
+#
+# print('ADF456'.isupper())  # определяет, состоит ли строка из символов букв в верхнем регистре
+
+# print('py'.center(10))  # выравнивает строку по центру
+# print('py'.center(10, "-"))
+# print('py'.center(1))
+
+
+# print('      py'.lstrip())
+# print('py        '.rstrip())
+# print('      py    '.strip())
+
+
+# print('https://www.python.org'.lstrip("/:pths"))
+# print('https://www.python.org'.rstrip("/:pths"))
+# print('https://www.python.org'.rstrip("/:pths"))
+
+# print('https://www.python.org'.rstrip("org.").lstrip("/:pths"))
+
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# print(str1.replace('Nython', 'Python', 2))
+
+# s = "Заменить в этой строке все пояления буквы 'о' на букву 'О', кроме первого и последнего вхождения."
+# a = s[:s.find('о') + 1]
+# b = s[s.find('о') + 1:s.rfind('о')]
+# c = s[s.rfind('о'):]
+# s = a + b.replace('о', 'О') + c
+# print(s)
+
+# s = '-'
+# seq = ("a", 'b', 'c')
+# print(s.join(seq))
+#
+# print('..'.join(['1', '2']))
+
+# print(':'.join('Hello'))
+# print('H:e:l:l:o'.split(':'))
+# print('Строка разделенная пробелами'.split())
+# print('www.python.org.ru'.split(".", 1))
+# print('www.python.org.ru'.rsplit(".", 2))
+
+
+# a = input("-> ").split()
+# print(a)
+
+# a = input('Введите ФИО: ').split()
+# print(a)
+# print(f"{a[0].capitalize()} {a[1][0].upper()}. {a[2][0].upper()}.")
+
+
+# Регулярные выражения
+
+# import re
+
+# s = 'Я ищу совпадения в 2023 году. И я их найду в два счёта.'
+# reg = 'я'
+
+# print(re.findall(reg, s))  # возвращает список, содержащий все совпадения с шаблоном
+# print(re.search(reg, s))   # местоположение первого совпадения объекта
+# # print(re.search(reg, s).span())
+# # print(re.search(reg, s).start())
+# # print(re.search(reg, s).end())
+# # print(re.search(reg, s).group())
+# print(re.match(reg, s))  # местоположение совпадения объекта в начале строки
+# print(re.split(reg, s, 2))  # возвращает список, в котором строка разбита по шаблону
+# print(re.sub(reg, 'Я', s, 3))  # поиск и замена
+
+# import re
+
+# s = 'Я ищу совпадения в 2023 году. И я их найду в [ два ] счёта.'
+# # reg = '[12][0-9][0-9][0-9]'
+# # reg = '[А-яЁё]'
+# # reg = '[A-Za-z]'
+# # reg = r'\.'
+# # reg = r'[0-9.\[\]].'
+# reg = r'[^0-9]'  # ^ = все кроме указанных сиволов
+# print(re.findall(reg, s))
+# print(ord("Я"))
+# print(ord("а"))
+# print(chr(96))
+
+
+# s = "Час в 24-часовом формате от 00 до 23. 2021-06-15T21:45. Минуты, в диапазоне от 00 до 59. 2021-06-15T01:09."
+# reg = r'[2][0-9]:[0-5][0-9]'
+# print(re.findall(reg, s))
+
+# s = "Час в 24-часовом формате от 00 до 23. 2021-06-15T21:45. Минуты, в диапазоне от 00 до 59. 2021-06-15T01:09."
+# # reg = r'\w\s\w'
+# # reg = r'\w+'
+# reg = r'20*'
+# print(re.findall(reg, s))
+
+
+# d = "Цифры: 7, +17, -42, 0012, 0.3"
+# print(re.findall(r"[+-]?\d+[.\d]*", d))
+
+# s = "06-03-1987 # Дата рождения"
+# print('Дата рождения:', re.sub(r'#.*', '', s))
+#
+# print('Дата рождения:', re.sub(r'-', '.',  re.sub(r'#.*', '', s)))
+
+# s = "author=Пушкин А.С.; title = Евгений Онегин; price =200; year= 1831"
+# # reg = r"\w+\s*=\s*\w+[\s\w.]*"
+# reg = r"\w+\s*=[^;]+"
+# print(re.findall(reg, s))
+
+
+# s = "12 сентября 2021 года"
+# # reg = r"\d{2,4}"
+# reg = r"\d{2,}"
+# print(re.findall(reg, s))
+
+# s = "+7 499 456-45-78, +74994564578, +7 (499) 456 45 78, 74994564578"
+#
+# reg = r"\0+?7\d{10}"
+# print(re.findall(reg, s))
+
+# s = 'Я ищу совпадения в 2023 году. И я их найду в [ два ] счёта.'
+# # reg = r"^\w+\s\w+"
+# reg = r"\w+\.$"
+# print(re.findall(reg, s))
+
+
+# def validate_login(name):
+#     return re.findall(r'^[A-Za-z_0-9-]{3,16}$', name)
+#
+#
+# print(validate_login('Python_master'))
+# print(validate_login('Pyt09%%%'))
+
+#
+# print(re.findall(r'\w+', '10 + й'))
+# print(re.findall(r'\w+', '10 + й', flags=re.ASCII))
+# print(re.findall(r'\w+', '10 + й', flags=re.A))
+# print(re.findall(r'\w+', '10 + й', re.A))
+
+
+# text = 'hello world'
+# print(re.findall(r"\w+", text))
+# print(re.findall(r"\w+", text, re.DEBUG))
+
+# s = 'Я ищу совпадения в 2023 году. И я их найду в [ два ] счёта.'
+# reg = r"я"
+# print(re.findall(reg, s, re.IGNORECASE))
+
+
+# text = '''
+# one
+# two
+# '''
+# print(re.findall(r'one.\w+', text, re.DOTALL))
+
+# print(re.findall('one$', text))
+# print(re.findall('one$', text, re.MULTILINE))
+# print(re.findall('^two$', text,))
+# print(re.findall('^two$', text, re.MULTILINE))
+
+# print(re.findall("""
+# [a-z.-]+    # part 1
+# @           # @
+# [a-z.-]+    # part 2
+# """, 'test@mail.ru', re.VERBOSE))
+
+# text = """Python,
+# python,
+# PYTHON
+# """
+# reg = "(?im)^python"
+# print(re.findall(reg, text))
+
+# lambda n: lambda y: lambda x: x + n + y)(int(5))(int(30))(int(10))
+
+from math import pi
+
+s_1 = lambda x: 2 * x * pi
+s_2 = lambda y: lambda x: y * x
+s_3 = lambda h: lambda b: lambda a: h*(a + b)/2
+
+add = s_2(10)
+add_1 = s_3(3)
+print("Площадь окружности радиуса 2: ", s_1(2))
+print("Площадь треугольника размером 10*13: ", add(13))
+print("Площадь треугольника размером 10*13: ", add_1(5)(7))
