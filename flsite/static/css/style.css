@@ -1,0 +1,35 @@
+body{
+    background: lightyellow;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background: orange;
+    padding: 20px;
+    margin-top: 0px
+}
+.content{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.success{
+    border: 1px solid #21Dd56;
+    background: #AEFFC5;
+}
+.error{
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+.flash{
+    padding: 10px;
+}
+.menu a{
+    color: brown;
+    font-weight: bold;
+}
