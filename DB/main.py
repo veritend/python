@@ -3601,7 +3601,9 @@
 
 import os
 
+print(os.getcwd())
 sc = os.getcwd()
+print(os.listdir())
 s = os.listdir()
 for i in s:
     path = sc + "\\" + i
@@ -3611,6 +3613,9 @@ for i in s:
     else:
         w = os.path.getsize(path)
         print(f"{i} - file - {w} bytes")
+
+# print(os.path.isdir(r'D:\python\pythonProject\Work\F2\F21\f211.txt'))  # Возвращает True если путь является
+# # директорией
 # for i in s:
 
 # for root, dirs, files in os.walk("nested1", topdown=False):
