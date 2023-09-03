@@ -3311,20 +3311,20 @@
 #             count += 1
 #     return count
 
-names = ["Adam", ["Bob", ["Chet", "Cat"], "Bard", "Bert"], "Alex", ["Bea", "Bill"], "Ann"]
-print(names)
-count = 0
-for i in range(len(names)):
-    count += 1
-    for j in range(len(names[i]) - 1):
-        if isinstance(names[i], list):
-            count += 1
-            for k in range(len(names[i][j]) - 1):
-                if isinstance(names[i][j], list):
-                    count += 1
-
-
-print(count)
+# names = ["Adam", ["Bob", ["Chet", "Cat"], "Bard", "Bert"], "Alex", ["Bea", "Bill"], "Ann"]
+# print(names)
+# count = 0
+# for i in range(len(names)):
+#     count += 1
+#     for j in range(len(names[i]) - 1):
+#         if isinstance(names[i], list):
+#             count += 1
+#             for k in range(len(names[i][j]) - 1):
+#                 if isinstance(names[i][j], list):
+#                     count += 1
+#
+#
+# print(isinstance(names))
 
 
 #
@@ -3365,9 +3365,9 @@ print(count)
 # f.close()
 
 # f = open('11.txt')
-# print(f.readline())
-# print(f.readline(8))
-# print(f.readline())
+# # # print(f.readline())
+# # print(f.readline(8))
+# # print(f.readline())
 # f.close()
 
 # f = open('11.txt')
@@ -3388,6 +3388,9 @@ print(count)
 # f = open('text.txt', 'w')
 # f.write('Hello\nWorld\n')
 # f.close()
+# f = open('text.txt', 'r')
+# print(f.readline())
+# f.close()
 
 
 # f = open("xyz.txt", "a")
@@ -3406,14 +3409,15 @@ print(count)
 # f = open('text2.txt', 'w')
 # f.write('Заменить строку в текстовом файле\n изменить строку в списке\nзаписать список в файл')
 # f.close()
-#
-# f = open('text2.txt', 'r')
+
+
+# f = open('text5.txt', 'r')
 # read_file = f.readlines()
 # print(read_file)
 # read_file[1] = 'Замена'
 # print(read_file)
 # f.close()
-#
+
 # f = open('text2.txt', 'w')
 # f.writelines(read_file)
 # f.close()
@@ -3461,8 +3465,8 @@ print(count)
 
 # file_name = 'res.txt'
 # lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.777]
-
-
+#
+#
 # def get_line(lt):
 #     lt = list(map(str, lt))
 #     print(lt)
@@ -3471,7 +3475,7 @@ print(count)
 #
 # with open(file_name, 'w') as f:
 #     get_line(lst)
-#     # f.write(str(lst))
+#     f.write(str(lst))
 #
 # print('Done!')
 
@@ -3501,7 +3505,7 @@ print(count)
 #
 # with open('one.txt', 'w') as f:
 #     f.write(text)
-
+#
 # read_file = 'one.txt'
 # write_file = 'two.txt'
 #
@@ -3509,8 +3513,8 @@ print(count)
 #     for line in fr:
 #         line = line.replace('Строка', 'Линия - ')
 #         fw.write(line)
-
-
+# #
+#
 # read_file = 'one.txt'
 # write_file = 'two.txt'
 # other_file = 'three.txt'
@@ -3530,6 +3534,52 @@ print(count)
 #     for i, j in zip(a, b):
 #         c = i + j
 #         fw.write(c)
+
+file_name = 'dz.txt'
+text = 'Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n'
+write_file = 'dz1.txt'
+
+with open(file_name, 'w') as f:
+    f.write(text)
+
+pos1 = int(input('введите номер заменяемой строки строки '))
+pos2 = int(input('введите номер заменяемой строки строки '))
+
+with open(file_name, 'r') as fr, open(write_file, 'w') as fw:
+    a = fr.readline()
+    b = fr.readline()
+    c = fr.readline()
+    if pos1 == 1 and pos2 == 2 or pos1 == 2 and pos2 == 1:
+        fw.writelines(b + a + c)
+    elif pos1 == 3 and pos2 == 1 or pos1 == 1 and pos2 == 3:
+        fw.writelines(c + b + a)
+    elif pos1 == 3 and pos2 == 2 or pos1 == 2 and pos2 == 3:
+        fw.writelines(a + c + b)
+
+file_name2 = 'dz3.txt'
+text = 'Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n'
+write_file = 'dz4.txt'
+
+with open(file_name2, 'w') as f:
+    f.write(text)
+
+with open(file_name2, 'r') as fr, open(write_file, 'w') as fw:
+    a = fr.readline()
+    b = fr.readline()
+    c = fr.readline()
+    fw.writelines(c + b + a)
+
+# with open(file_name, 'r') as f:
+#     for line in f:
+#         if line == pos1 - 1:
+#             f.write(t[pos2 - 1])
+#         elif line == pos2 - 1:
+#             f.write(t[pos1 - 1])
+#         else:
+#             ...
+#
+# with open(file_name, 'r') as f:
+#     f.readlines()
 
 
 # Модули OS b OS.PATH
