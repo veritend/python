@@ -3599,18 +3599,18 @@
 # os.rename("three.txt", "directory/three.txt")
 # os.renames("text2.txt", "test/text.txt")  # создает промежуточные директории
 
-import os
-
-sc = os.getcwd()
-s = os.listdir()
-for i in s:
-    path = sc + "\\" + i
-    t = os.path.isdir(path)
-    if t:
-        print(f"{i} - dir")
-    else:
-        w = os.path.getsize(path)
-        print(f"{i} - file - {w} bytes")
+# import os
+#
+# sc = os.getcwd()
+# s = os.listdir()
+# for i in s:
+#     path = sc + "\\" + i
+#     t = os.path.isdir(path)
+#     if t:
+#         print(f"{i} - dir")
+#     else:
+#         w = os.path.getsize(path)
+#         print(f"{i} - file - {w} bytes")
 # for i in s:
 
 # for root, dirs, files in os.walk("nested1", topdown=False):
@@ -3913,6 +3913,106 @@ for i in s:
 # p2 = Point()
 # p3 = Point()
 # print("Point", Point.count)
+
+class Auto:
+    def __init__(self, mark =" ", year = " ", manufacturer = " ", power = " ", color = " ", price = " "):
+        self.mark = mark
+        self.year = year
+        self.manufacturer = manufacturer
+        self.power = power
+        self.color = color
+        self.price = price
+
+    def set_info(self, mark, year, manufacturer, power, color, price):
+        if isinstance(mark, str) and isinstance(year, int) and isinstance(manufacturer, str) and\
+                isinstance(power, int) and isinstance(color, str) and isinstance(price, int):
+            self.mark = mark
+            self.year = year
+            self.manufacturer = manufacturer
+            self.power = power
+            self.color = color
+            self.price = price
+        else:
+            print("Данные введены некорректно")
+
+    def get_info(self):
+        return self.mark, self.year, self.manufacturer, self.power, self.color, self.price
+
+    def print_info(self):
+        print(' Данные автомобиля '.center(40, "*"))
+        print(f'Название модели: {self.mark}\nГод выпуска: {self.year}\nПроизводитель: {self.manufacturer}\n'
+                     f'Мощность двигателя: {self.power} л.с.\nЦвет машины: {self.color}\nЦена: {self.price}')
+        print("=" * 40)
+        return "\n"
+
+    def set_mark(self, mark):
+        if isinstance(mark, str):
+            self.mark = mark
+        else:
+            print("Марка автомобиля должна быть строкой")
+
+    def get_mark(self):
+        return self.mark
+
+    def set_year(self, year):
+        if isinstance(year, int):
+            self.year = year
+        else:
+            print("Год выпуска должен быть числом")
+
+    def set_manufacturer(self, manufacturer):
+        if isinstance(manufacturer, str):
+            self.manufacturer = manufacturer
+        else:
+            print("Год выпуска должен быть строкой")
+
+    def get_manufacturer(self):
+        return self.manufacturer
+
+    def set_power(self, power):
+        if isinstance(power, int):
+            self.power = power
+        else:
+            print("Год выпуска должен быть строкой")
+
+    def get_power(self):
+        return self.power
+
+    def set_color(self, color):
+        if isinstance(color, str):
+            self.color = color
+        else:
+            print("Год выпуска должен быть строкой")
+
+    def get_color(self):
+        return self.color
+
+    def set_price(self, price):
+        if isinstance(price, int):
+            self.price = price
+        else:
+            print("Год выпуска должен быть строкой")
+
+    def get_price(self):
+        return self.price
+
+
+p = Auto()
+p.set_info("X7 M50i", 2021, "BMW", 530, "white", 10790000)
+# p1 = Auto("X7 M50i", 2021, "BMW", 530, "white", 10790000)
+print(p.print_info())
+p.set_mark("iX M60")
+print(p.print_info())
+p.set_year(2017)
+print(p.print_info())
+p.set_manufacturer("Hyundai")
+print(p.print_info())
+p.set_power(435)
+print(p.print_info())
+p.set_color("Blue")
+print(p.print_info())
+p.set_price(8500000)
+print(p.print_info())
 
 
 # class Robot:
