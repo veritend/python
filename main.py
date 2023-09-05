@@ -4165,130 +4165,130 @@ import re
 # print(weight.to_pound(), "фунтов")
 
 
-class Account:
-    rate_usd = 0.013
-    rate_eur = 0.011
-    suffix = 'RUB'
-    suffix_usd = "USD"
-    suffix_eur = "EUR"
-
-    def __init__(self, surname, num, percent, value=0):
-        self.verify_surname(surname)
-        self.verify_num(num)
-        self.verify_percent(percent)
-        self.verify_value(value)
-
-        self.surname = surname
-        self.num = num
-        self.percent = percent
-        self.value = value
-        print(f"Счет #{self.num} принадлежащий {self.surname} был открыт")
-        print('*' * 50)
-
-    @staticmethod
-    def verify_surname(surname):
-        if not isinstance(surname, str) or not len(surname) != 1:
-            raise TypeError('Неверно введена фамилия')
-        fam = "".join(re.findall(r'[a-za-яё-]', surname, re.IGNORECASE))
-        print(fam)
-        f = surname.strip(fam)
-        print(f)
-        if len(surname.strip(fam)) != 0:
-            raise TypeError('В Фамилии использовать только буквы и дефис')
-
-    @staticmethod
-    def verify_num(num):
-        if not isinstance(num, str) or not len(num) != 1:
-            raise TypeError('Лицевой счет введен некорректно')
-        numb = "".join(re.findall(r'[0-9]', num, re.IGNORECASE))
-        if len(num.strip(numb)) != 0:
-            raise TypeError('В лицевом счете использовать только цифры')
-
-    @staticmethod
-    def verify_percent(percent):
-        print(percent)
-        if not isinstance(percent, float) or not 0.31 > percent > 0.009:
-            raise TypeError('Процент должен быть числом от 0.01 до 0.3')
-
-    @staticmethod
-    def verify_value(value):
-        print(value)
-        if not isinstance(value, int):
-            raise TypeError('Баланс введен некорректно')
-
-    def __del__(self):
-        print('*' * 50)
-        print(f"Счет #{self.num} принадлежащий {self.surname} был закрыт")
-
-    @classmethod
-    def set_usd_rate(cls, rate):
-        cls.rate_usd = rate
-
-    @classmethod
-    def set_eur_rate(cls, rate):
-        cls.rate_eur = rate
-
-    @staticmethod
-    def convert(value, rate):
-        return value * rate
-
-    def convert_to_usd(self):
-        usd_val = Account.convert(self.value, Account.rate_usd)
-        print(f"Состояние счета: {usd_val} {Account.suffix_usd}")
-
-    def convert_to_eur(self):
-        usd_val = Account.convert(self.value, Account.rate_eur)
-        print(f"Состояние счета: {usd_val} {Account.suffix_eur}")
-
-    def edit_owner(self, surname):
-        self.surname = surname
-
-    def add_percents(self):
-        self.value += self.value * self.percent
-        print('Проценты были начислены!')
-        self.print_balance()
-
-    def withdraw_money(self, val):
-        if val > self.value:
-            print(f"К сожалению у вас нет {val} {Account.suffix}")
-        else:
-            self.value -= val
-            print(f'{val} {Account.suffix} было успешно снято!')
-
-    def add_money(self, val):
-        self.value += val
-        print(f'{val} {Account.suffix} было успешно добавлено!')
-        self.print_balance()
-
-    def print_balance(self):
-        print(f"Текущий баланс {self.value} {Account.suffix}")
-
-    def print_info(self):
-        print("Информация о счете")
-        print("-" * 20)
-        print(f"#{self.num}")
-        print(f"Владелец: {self.surname}")
-        self.print_balance()
-        print(f"Проценты: {self.percent:.0%}")
-        print("-" * 20)
-
-
-acc = Account("Долгих", '12345', 0.03, 3000)
-acc.print_info()
-acc.convert_to_usd()
-acc.convert_to_eur()
-acc.set_usd_rate(2)
-acc.convert_to_usd()
-acc.set_eur_rate(3)
-acc.convert_to_eur()
-acc.edit_owner('Дюма')
-acc.print_info()
-
-acc.add_percents()
-acc.withdraw_money(100)
-acc.withdraw_money(3000)
-
-acc.add_money(5000)
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = 'RUB'
+#     suffix_usd = "USD"
+#     suffix_eur = "EUR"
+#
+#     def __init__(self, surname, num, percent, value=0):
+#         self.verify_surname(surname)
+#         self.verify_num(num)
+#         self.verify_percent(percent)
+#         self.verify_value(value)
+#
+#         self.surname = surname
+#         self.num = num
+#         self.percent = percent
+#         self.value = value
+#         print(f"Счет #{self.num} принадлежащий {self.surname} был открыт")
+#         print('*' * 50)
+#
+#     @staticmethod
+#     def verify_surname(surname):
+#         if not isinstance(surname, str) or not len(surname) != 1:
+#             raise TypeError('Неверно введена фамилия')
+#         fam = "".join(re.findall(r'[a-za-яё-]', surname, re.IGNORECASE))
+#         print(fam)
+#         f = surname.strip(fam)
+#         print(f)
+#         if len(surname.strip(fam)) != 0:
+#             raise TypeError('В Фамилии использовать только буквы и дефис')
+#
+#     @staticmethod
+#     def verify_num(num):
+#         if not isinstance(num, str) or not len(num) != 1:
+#             raise TypeError('Лицевой счет введен некорректно')
+#         numb = "".join(re.findall(r'[0-9]', num, re.IGNORECASE))
+#         if len(num.strip(numb)) != 0:
+#             raise TypeError('В лицевом счете использовать только цифры')
+#
+#     @staticmethod
+#     def verify_percent(percent):
+#         print(percent)
+#         if not isinstance(percent, float) or not 0.31 > percent > 0.009:
+#             raise TypeError('Процент должен быть числом от 0.01 до 0.3')
+#
+#     @staticmethod
+#     def verify_value(value):
+#         print(value)
+#         if not isinstance(value, int):
+#             raise TypeError('Баланс введен некорректно')
+#
+#     def __del__(self):
+#         print('*' * 50)
+#         print(f"Счет #{self.num} принадлежащий {self.surname} был закрыт")
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.value, Account.rate_usd)
+#         print(f"Состояние счета: {usd_val} {Account.suffix_usd}")
+#
+#     def convert_to_eur(self):
+#         usd_val = Account.convert(self.value, Account.rate_eur)
+#         print(f"Состояние счета: {usd_val} {Account.suffix_eur}")
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def add_percents(self):
+#         self.value += self.value * self.percent
+#         print('Проценты были начислены!')
+#         self.print_balance()
+#
+#     def withdraw_money(self, val):
+#         if val > self.value:
+#             print(f"К сожалению у вас нет {val} {Account.suffix}")
+#         else:
+#             self.value -= val
+#             print(f'{val} {Account.suffix} было успешно снято!')
+#
+#     def add_money(self, val):
+#         self.value += val
+#         print(f'{val} {Account.suffix} было успешно добавлено!')
+#         self.print_balance()
+#
+#     def print_balance(self):
+#         print(f"Текущий баланс {self.value} {Account.suffix}")
+#
+#     def print_info(self):
+#         print("Информация о счете")
+#         print("-" * 20)
+#         print(f"#{self.num}")
+#         print(f"Владелец: {self.surname}")
+#         self.print_balance()
+#         print(f"Проценты: {self.percent:.0%}")
+#         print("-" * 20)
+#
+#
+# acc = Account("Долгих", '12345', 0.03, 3000)
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# acc.set_usd_rate(2)
+# acc.convert_to_usd()
+# acc.set_eur_rate(3)
+# acc.convert_to_eur()
+# acc.edit_owner('Дюма')
+# acc.print_info()
+#
+# acc.add_percents()
+# acc.withdraw_money(100)
+# acc.withdraw_money(3000)
+#
+# acc.add_money(5000)
 
 
 # class UserData:
@@ -4515,38 +4515,45 @@ acc.add_money(5000)
 # rect.set_coord(Point(10, 30), Point(40, 70))
 # rect.draw_rect()
 
-# пересмотреть занятие 25 03 2023
+from math import pi
 
-# from math import pi
-#
-#
-# class Table:
-#     def __init__(self, width=None, length=None, radius=None):
-#         if radius is None:
-#             self._width = width
-#             self._length = length
-#         else:
-#             self._radius = radius
-#
-#     def calc_area(self):
-#         raise NotImplementedError("В дочернем классе ")
-#
-#
-# class SqTable(Table):
-#     def calc_area(self):
-#         return self._width * self._length
-#
-#
-# class RoundTable(Table):
-#     def calc_area(self):
-#         return round(pi * self._radius ** 2, 2)
-#
-#
-# t = Table(20, 10)
-# print(t.__dict__)
-# t1 = Table(20)
-# print(t1.__dict__)
-# print(t.calc_area())
+
+class Table:
+    def __init__(self, width=None, length=None, radius=None):
+        if radius is None:
+            if length is None:
+                self._width = self._length = width
+            else:
+                self._width = width
+                self._length = length
+        else:
+            self._radius = radius
+
+    def calc_area(self):
+        raise NotImplementedError("В дочернем классе ")
+
+
+class SqTable(Table):
+    def calc_area(self):
+        return self._width * self._length
+
+
+class RoundTable(Table):
+    def calc_area(self):
+        return round(pi * self._radius ** 2, 2)
+
+
+t = SqTable(20, 10)
+print(t.__dict__)
+print(t.calc_area())
+
+t1 = SqTable(20)
+print(t1.__dict__)
+print(t1.calc_area())
+
+t2 = RoundTable(radius=20)
+print(t2.__dict__)
+print(t2.calc_area())
 
 #  пересмотреть 26.03.2023 начало
 # from abc import ABC, abstractmethod
