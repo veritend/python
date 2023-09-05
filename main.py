@@ -4176,6 +4176,7 @@ class Account:
         self.verify_surname(surname)
         self.verify_num(num)
         self.verify_percent(percent)
+        self.verify_value(value)
 
         self.surname = surname
         self.num = num
