@@ -4515,45 +4515,45 @@ import re
 # rect.set_coord(Point(10, 30), Point(40, 70))
 # rect.draw_rect()
 
-from math import pi
-
-
-class Table:
-    def __init__(self, width=None, length=None, radius=None):
-        if radius is None:
-            if length is None:
-                self._width = self._length = width
-            else:
-                self._width = width
-                self._length = length
-        else:
-            self._radius = radius
-
-    def calc_area(self):
-        raise NotImplementedError("В дочернем классе ")
-
-
-class SqTable(Table):
-    def calc_area(self):
-        return self._width * self._length
-
-
-class RoundTable(Table):
-    def calc_area(self):
-        return round(pi * self._radius ** 2, 2)
-
-
-t = SqTable(20, 10)
-print(t.__dict__)
-print(t.calc_area())
-
-t1 = SqTable(20)
-print(t1.__dict__)
-print(t1.calc_area())
-
-t2 = RoundTable(radius=20)
-print(t2.__dict__)
-print(t2.calc_area())
+# from math import pi
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if radius is None:
+#             if length is None:
+#                 self._width = self._length = width
+#             else:
+#                 self._width = width
+#                 self._length = length
+#         else:
+#             self._radius = radius
+#
+#     def calc_area(self):
+#         raise NotImplementedError("В дочернем классе ")
+#
+#
+# class SqTable(Table):
+#     def calc_area(self):
+#         return self._width * self._length
+#
+#
+# class RoundTable(Table):
+#     def calc_area(self):
+#         return round(pi * self._radius ** 2, 2)
+#
+#
+# t = SqTable(20, 10)
+# print(t.__dict__)
+# print(t.calc_area())
+#
+# t1 = SqTable(20)
+# print(t1.__dict__)
+# print(t1.calc_area())
+#
+# t2 = RoundTable(radius=20)
+# print(t2.__dict__)
+# print(t2.calc_area())
 
 #  пересмотреть 26.03.2023 начало
 # from abc import ABC, abstractmethod
@@ -4672,6 +4672,38 @@ print(t2.calc_area())
 # outer.show()
 # g = outer.lg
 # g.display()
+
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.info = self.InfoLap()
+
+    def print_info(self):
+        print(f'{self.name} => {self.info.mod}, {self.info.proc}, {self.info.memory}')
+
+    class InfoLap:
+        def __init__(self):
+            self.mod = 'HP'
+            self.proc = 'i7'
+            self.memory = 16
+
+        def mod(self, mod):
+            return mod
+
+        def proc(self, proc):
+            return proc
+
+        def memory(self, memory):
+            return memory
+
+
+comp = Student("Roman")
+comp1 = Student("Vladimir")
+ss = comp.info
+comp.print_info()
+comp1.print_info()
+
 
 # class Intern:
 #     def __init__(self):
