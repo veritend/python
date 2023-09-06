@@ -4674,35 +4674,35 @@ import re
 # g.display()
 
 
-class Student:
-    def __init__(self, name):
-        self.name = name
-        self.info = self.InfoLap()
-
-    def print_info(self):
-        print(f'{self.name} => {self.info.mod}, {self.info.proc}, {self.info.memory}')
-
-    class InfoLap:
-        def __init__(self):
-            self.mod = 'HP'
-            self.proc = 'i7'
-            self.memory = 16
-
-        def mod(self, mod):
-            return mod
-
-        def proc(self, proc):
-            return proc
-
-        def memory(self, memory):
-            return memory
-
-
-comp = Student("Roman")
-comp1 = Student("Vladimir")
-ss = comp.info
-comp.print_info()
-comp1.print_info()
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+#         self.info = self.InfoLap()
+#
+#     def print_info(self):
+#         print(f'{self.name} => {self.info.mod}, {self.info.proc}, {self.info.memory}')
+#
+#     class InfoLap:
+#         def __init__(self):
+#             self.mod = 'HP'
+#             self.proc = 'i7'
+#             self.memory = 16
+#
+#         def mod(self, mod):
+#             return mod
+#
+#         def proc(self, proc):
+#             return proc
+#
+#         def memory(self, memory):
+#             return memory
+#
+#
+# comp = Student("Roman")
+# comp1 = Student("Vladimir")
+# ss = comp.info
+# comp.print_info()
+# comp1.print_info()
 
 
 # class Intern:
@@ -4970,43 +4970,108 @@ comp1.print_info()
 # print(NoteBook.mro())
 
 
-# class Clock:
-#     __Day = 86400
-#
-#     def __init__(self, sec):
-#         if not isinstance(sec, int):
-#             raise ValueError("секунды")
-#         self.sec = sec
-#
-#     def get_format_time(self):
-#         s = self.sec % 60
-#         m = (self.sec // 60) % 60
-#         h = (self.sec // 3600) % 24
-#         return f"{h}:{m}:{s}"
-#
-#     @staticmethod
-#     def get_form(x):
-#         return x if x > 9 else "0" + str(x)
-#
-#     def __add__(self, other):
-#         if not isinstance(other, Clock):
-#             raise  ArithmeticError("правый операнд должен быть типом данных Clock")
-#         return Clock(self.sec + other.sec)
-#
-#     def __eq__(self, other):
-#         if self.sec == other.sec:
-#             return True
-#         return False
-#
-#
-# c1 = Clock(100)
-# c2 = Clock(200)
-# c3 = c1 + c2
-# print(c1.get_format_time())
-# print(c2.get_format_time())
+class Clock:
+    __Day = 86400
 
-# дописать 02.04.2023
+    def __init__(self, sec):
+        if not isinstance(sec, int):
+            raise ValueError("секунды")
+        self.sec = sec
 
+    def get_format_time(self):
+        s = self.sec % 60
+        m = (self.sec // 60) % 60
+        h = (self.sec // 3600) % 24
+        return f"{self.get_form(h)}:{self.get_form(m)}:{self.get_form(s)}"
+
+    @staticmethod
+    def get_form(x):
+        return x if x > 9 else "0" + str(x)
+
+    def __add__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("правый операнд должен быть типом данных Clock")
+        return Clock(self.sec + other.sec)
+
+    def __sub__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("правый операнд должен быть типом данных Clock")
+        return Clock(self.sec - other.sec)
+
+    def __mul__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("правый операнд должен быть типом данных Clock")
+        return Clock(self.sec * other.sec)
+
+    def __floordiv__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("правый операнд должен быть типом данных Clock")
+        return Clock(self.sec // other.sec)
+
+    def __mod__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("правый операнд должен быть типом данных Clock")
+        return Clock(self.sec % other.sec)
+
+    def __eq__(self, other):
+        if self.sec == other.sec:
+            return True
+        return False
+
+    def __gt__(self, other):
+        if self.sec > other.sec:
+            return True
+        return False
+
+    def __ge__(self, other):
+        if self.sec >= other.sec:
+            return True
+        return False
+
+    def __lt__(self, other):
+        if self.sec < other.sec:
+            return True
+        return False
+
+    def __le__(self, other):
+        if self.sec <= other.sec:
+            return True
+        return False
+
+
+c1 = Clock(600)
+c2 = Clock(200)
+c3 = c1 + c2
+c4 = c1 - c2
+c5 = c1 * c2
+c6 = c1 // c2
+c7 = c1 % c2
+c8 = c1 - c2
+c9 = c1 * c2
+print("c1: " + c1.get_format_time())
+print("c2: " + c2.get_format_time())
+print("c1 + c2: " + c3.get_format_time())
+print("c1 - c2: " + c4.get_format_time())
+print("c1 * c2: " + c5.get_format_time())
+print("c1 // c2: " + c6.get_format_time())
+print("c1 % c2: " + c7.get_format_time())
+c1 -= c2
+print("c1 -= c2: " + c1.get_format_time())
+c1 *= c2
+print("c1 *= c2: " + c1.get_format_time())
+c1 //= c2
+print("c1 //= c2: " + c1.get_format_time())
+c10 = c1 % c2
+print("c1 % c2: " + c10.get_format_time())
+print()
+c11 = c3 > c1
+print(f"c3 > c1 {c11}")
+c11 = c3 >= c1
+print(f"c3 >= c1 {c11}")
+c11 = c3 < c1
+print(f"c3 < c1 {c11}")
+c11 = c3 <= c1
+print(f"c3 <= c1 {c11}")
 
 # from random import choice, randint
 #
