@@ -5516,6 +5516,48 @@
 # print(p1.__dict__)
 
 
+class Triangle:
+    @staticmethod
+    def verify_size(size):
+        if not isinstance(size, int) or size <= 0:
+            raise TypeError(f"Размер стороны должен быть целым и положительным")
+
+    def __set_name__(self, owner, name):
+        self.name = "_" + name
+
+    def __get__(self, instance, owner):
+        return getattr(instance, self.name)
+
+    def __set__(self, instance, value):
+        self.verify_size(value)
+        setattr(instance, self.name, value)
+
+
+class Sides:
+    a = Triangle()
+    b = Triangle()
+    c = Triangle()
+
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def check(self):
+        if self.a + self.b > self.c and self.b + self.c > self.a and self.a + self.c > self.b:
+            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) существует.")
+        else:
+            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) не существует.")
+
+
+s = Sides(1, 2, 3)
+print(s.c)
+print(s.__dict__)
+Sides(2, 5, 6).check()
+Sides(5, 2, 8).check()
+Sides(7, 3, 6).check()
+
+
 # Создание модулей
 
 # import math
@@ -5577,101 +5619,101 @@
 # if __name__ == "__main__":
 #     main()
 
-from math import sqrt
-
-
-class Shape:
-    def __init__(self, a, b=None, c=None):
-        self.a = a
-        self.b = b
-        self.c = c
-
-    def perimetr(self):
-        if self.c == None:
-            if self.b == None:
-                return self.a * 4
-            else:
-                return (self.a + self.b) * 2
-        else:
-            return self.a + self.b + self.c
-
-    def squar(self):
-        if self.c == None:
-            if self.b == None:
-                return self.a * self.a
-            else:
-                return self.a * self.b
-        else:
-            p = (self.a + self.b + self.c) / 2
-            t = p * (p - self.a) * (p - self.b) * (p - self.c)
-            return round(sqrt(t), 2)
-
-    def show(self):
-        if self.c == None:
-            if self.b == None:
-                for h in range(self.a):
-                    print(f"*" * self.a)
-            else:
-                for k in range(self.a):
-                    print(f"*" * self.b)
-        else:
-            for t in range(self.b):
-                print((f"*" * (1 + 2 * t)).center(self.a, " "))
-
-    def info(self):
-        print(f"Площадь: {self.squar()}")
-        print(f"Периметр: {self.perimetr()}")
-        self.show()
-
-
-class Square(Shape):
-    def __init__(self, a, color):
-        super().__init__(a)
-        self.color = color
-
-    def info(self):
-        print("Квадрат".center(13, '='))
-        print(f"Сторона: {self.a}")
-        print(f"Цвет: {self.color}")
-        super().info()
-
-
-class Rectangle(Shape):
-    def __init__(self, a, b, color):
-        super().__init__(a, b)
-        self.color = color
-
-    def info(self):
-        print()
-        print("Прямоугольник".center(20, '='))
-        print(f"Длина: {self.a}")
-        print(f"Ширина: {self.b}")
-        print(f"Цвет: {self.color}")
-        super().info()
-
-
-class Triangle(Shape):
-    def __init__(self, a, b, с, color):
-        super().__init__(a, b, с)
-        self.color = color
-
-    def info(self):
-        print()
-        print(' Треугольник '.center(24, '='))
-        print(f"Сторона 1: {self.a}")
-        print(f"Сторона 2: {self.b}")
-        print(f"Сторона 3: {self.c}")
-        print(f"Цвет: {self.color}")
-        super().info()
-
-
-s = (
-    Square(3, "red"),
-    Rectangle(3, 7, "green"),
-    Triangle(11, 6, 6, "yellow"),
-     )
-for i in s:
-    i.info()
+# from math import sqrt
+#
+#
+# class Shape:
+#     def __init__(self, a, b=None, c=None):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     def perimetr(self):
+#         if self.c == None:
+#             if self.b == None:
+#                 return self.a * 4
+#             else:
+#                 return (self.a + self.b) * 2
+#         else:
+#             return self.a + self.b + self.c
+#
+#     def squar(self):
+#         if self.c == None:
+#             if self.b == None:
+#                 return self.a * self.a
+#             else:
+#                 return self.a * self.b
+#         else:
+#             p = (self.a + self.b + self.c) / 2
+#             t = p * (p - self.a) * (p - self.b) * (p - self.c)
+#             return round(sqrt(t), 2)
+#
+#     def show(self):
+#         if self.c == None:
+#             if self.b == None:
+#                 for h in range(self.a):
+#                     print(f"*" * self.a)
+#             else:
+#                 for k in range(self.a):
+#                     print(f"*" * self.b)
+#         else:
+#             for t in range(self.b):
+#                 print((f"*" * (1 + 2 * t)).center(self.a, " "))
+#
+#     def info(self):
+#         print(f"Площадь: {self.squar()}")
+#         print(f"Периметр: {self.perimetr()}")
+#         self.show()
+#
+#
+# class Square(Shape):
+#     def __init__(self, a, color):
+#         super().__init__(a)
+#         self.color = color
+#
+#     def info(self):
+#         print("Квадрат".center(13, '='))
+#         print(f"Сторона: {self.a}")
+#         print(f"Цвет: {self.color}")
+#         super().info()
+#
+#
+# class Rectangle(Shape):
+#     def __init__(self, a, b, color):
+#         super().__init__(a, b)
+#         self.color = color
+#
+#     def info(self):
+#         print()
+#         print("Прямоугольник".center(20, '='))
+#         print(f"Длина: {self.a}")
+#         print(f"Ширина: {self.b}")
+#         print(f"Цвет: {self.color}")
+#         super().info()
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, a, b, с, color):
+#         super().__init__(a, b, с)
+#         self.color = color
+#
+#     def info(self):
+#         print()
+#         print(' Треугольник '.center(24, '='))
+#         print(f"Сторона 1: {self.a}")
+#         print(f"Сторона 2: {self.b}")
+#         print(f"Сторона 3: {self.c}")
+#         print(f"Цвет: {self.color}")
+#         super().info()
+#
+#
+# s = (
+#     Square(3, "red"),
+#     Rectangle(3, 7, "green"),
+#     Triangle(11, 6, 6, "yellow"),
+#      )
+# for i in s:
+#     i.info()
 
 
 # class Rectangle(Shape):
