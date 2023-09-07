@@ -5511,53 +5511,8 @@
 #         self.y = y
 #         self.z = z
 #
-#
 # p1 = Point3D(1, 2, 3)
 # print(p1.__dict__)
-
-
-class Triangle:
-    @staticmethod
-    def verify_size(size):
-        if not isinstance(size, int) or size <= 0:
-            raise TypeError(f"Размер стороны должен быть целым и положительным")
-
-    def __set_name__(self, owner, name):
-        self.name = "_" + name
-
-    def __get__(self, instance, owner):
-        return getattr(instance, self.name)
-
-    def __set__(self, instance, value):
-        self.verify_size(value)
-        setattr(instance, self.name, value)
-
-
-class Sides:
-    a = Triangle()
-    b = Triangle()
-    c = Triangle()
-
-    def __init__(self, a, b, c):
-        self.a = a
-        self.b = b
-        self.c = c
-
-    def check(self):
-        if self.a + self.b > self.c and self.b + self.c > self.a and self.a + self.c > self.b:
-            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) существует.")
-        else:
-            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) не существует.")
-
-
-s = Sides(1, 2, 3)
-print(s.c)
-print(s.__dict__)
-Sides(2, 5, 6).check()
-Sides(5, 2, 8).check()
-Sides(7, 3, 6).check()
-
-
 # Создание модулей
 
 # import math
@@ -5736,6 +5691,48 @@ Sides(7, 3, 6).check()
 #     def info(self):
 #         print(f"{self.surname} {self.name} {self.age}", end=' ')
 #
+
+class Triangle:
+    @staticmethod
+    def verify_size(size):
+        if not isinstance(size, int) or size <= 0:
+            raise TypeError(f"Размер стороны должен быть целым и положительным")
+
+    def __set_name__(self, owner, name):
+        self.name = "_" + name
+
+    def __get__(self, instance, owner):
+        return getattr(instance, self.name)
+
+    def __set__(self, instance, value):
+        self.verify_size(value)
+        setattr(instance, self.name, value)
+
+
+class Sides:
+    a = Triangle()
+    b = Triangle()
+    c = Triangle()
+
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def check(self):
+        if self.a + self.b > self.c and self.b + self.c > self.a and self.a + self.c > self.b:
+            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) существует.")
+        else:
+            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) не существует.")
+
+
+s = Sides(1, 2, 3)
+print(s.c)
+print(s.__dict__)
+Sides(2, 5, 6).check()
+Sides(5, 2, 8).check()
+Sides(7, 3, 6).check()
+
 #
 # class Student(Human):
 #     def __init__(self, surname, name, age, speciality, group, rating):
