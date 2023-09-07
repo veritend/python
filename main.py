@@ -4,7 +4,7 @@
 # print(age)
 # import re
 # import re
-import re
+# import re
 
 
 # a = 5
@@ -4970,108 +4970,108 @@ import re
 # print(NoteBook.mro())
 
 
-class Clock:
-    __Day = 86400
-
-    def __init__(self, sec):
-        if not isinstance(sec, int):
-            raise ValueError("секунды")
-        self.sec = sec
-
-    def get_format_time(self):
-        s = self.sec % 60
-        m = (self.sec // 60) % 60
-        h = (self.sec // 3600) % 24
-        return f"{self.get_form(h)}:{self.get_form(m)}:{self.get_form(s)}"
-
-    @staticmethod
-    def get_form(x):
-        return x if x > 9 else "0" + str(x)
-
-    def __add__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("правый операнд должен быть типом данных Clock")
-        return Clock(self.sec + other.sec)
-
-    def __sub__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("правый операнд должен быть типом данных Clock")
-        return Clock(self.sec - other.sec)
-
-    def __mul__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("правый операнд должен быть типом данных Clock")
-        return Clock(self.sec * other.sec)
-
-    def __floordiv__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("правый операнд должен быть типом данных Clock")
-        return Clock(self.sec // other.sec)
-
-    def __mod__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("правый операнд должен быть типом данных Clock")
-        return Clock(self.sec % other.sec)
-
-    def __eq__(self, other):
-        if self.sec == other.sec:
-            return True
-        return False
-
-    def __gt__(self, other):
-        if self.sec > other.sec:
-            return True
-        return False
-
-    def __ge__(self, other):
-        if self.sec >= other.sec:
-            return True
-        return False
-
-    def __lt__(self, other):
-        if self.sec < other.sec:
-            return True
-        return False
-
-    def __le__(self, other):
-        if self.sec <= other.sec:
-            return True
-        return False
-
-
-c1 = Clock(600)
-c2 = Clock(200)
-c3 = c1 + c2
-c4 = c1 - c2
-c5 = c1 * c2
-c6 = c1 // c2
-c7 = c1 % c2
-c8 = c1 - c2
-c9 = c1 * c2
-print("c1: " + c1.get_format_time())
-print("c2: " + c2.get_format_time())
-print("c1 + c2: " + c3.get_format_time())
-print("c1 - c2: " + c4.get_format_time())
-print("c1 * c2: " + c5.get_format_time())
-print("c1 // c2: " + c6.get_format_time())
-print("c1 % c2: " + c7.get_format_time())
-c1 -= c2
-print("c1 -= c2: " + c1.get_format_time())
-c1 *= c2
-print("c1 *= c2: " + c1.get_format_time())
-c1 //= c2
-print("c1 //= c2: " + c1.get_format_time())
-c10 = c1 % c2
-print("c1 % c2: " + c10.get_format_time())
-print()
-c11 = c3 > c1
-print(f"c3 > c1 {c11}")
-c11 = c3 >= c1
-print(f"c3 >= c1 {c11}")
-c11 = c3 < c1
-print(f"c3 < c1 {c11}")
-c11 = c3 <= c1
-print(f"c3 <= c1 {c11}")
+# class Clock:
+#     __Day = 86400
+#
+#     def __init__(self, sec):
+#         if not isinstance(sec, int):
+#             raise ValueError("секунды")
+#         self.sec = sec
+#
+#     def get_format_time(self):
+#         s = self.sec % 60
+#         m = (self.sec // 60) % 60
+#         h = (self.sec // 3600) % 24
+#         return f"{self.get_form(h)}:{self.get_form(m)}:{self.get_form(s)}"
+#
+#     @staticmethod
+#     def get_form(x):
+#         return x if x > 9 else "0" + str(x)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec + other.sec)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec - other.sec)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec * other.sec)
+#
+#     def __floordiv__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec // other.sec)
+#
+#     def __mod__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("правый операнд должен быть типом данных Clock")
+#         return Clock(self.sec % other.sec)
+#
+#     def __eq__(self, other):
+#         if self.sec == other.sec:
+#             return True
+#         return False
+#
+#     def __gt__(self, other):
+#         if self.sec > other.sec:
+#             return True
+#         return False
+#
+#     def __ge__(self, other):
+#         if self.sec >= other.sec:
+#             return True
+#         return False
+#
+#     def __lt__(self, other):
+#         if self.sec < other.sec:
+#             return True
+#         return False
+#
+#     def __le__(self, other):
+#         if self.sec <= other.sec:
+#             return True
+#         return False
+#
+#
+# c1 = Clock(600)
+# c2 = Clock(200)
+# c3 = c1 + c2
+# c4 = c1 - c2
+# c5 = c1 * c2
+# c6 = c1 // c2
+# c7 = c1 % c2
+# c8 = c1 - c2
+# c9 = c1 * c2
+# print("c1: " + c1.get_format_time())
+# print("c2: " + c2.get_format_time())
+# print("c1 + c2: " + c3.get_format_time())
+# print("c1 - c2: " + c4.get_format_time())
+# print("c1 * c2: " + c5.get_format_time())
+# print("c1 // c2: " + c6.get_format_time())
+# print("c1 % c2: " + c7.get_format_time())
+# c1 -= c2
+# print("c1 -= c2: " + c1.get_format_time())
+# c1 *= c2
+# print("c1 *= c2: " + c1.get_format_time())
+# c1 //= c2
+# print("c1 //= c2: " + c1.get_format_time())
+# c10 = c1 % c2
+# print("c1 % c2: " + c10.get_format_time())
+# print()
+# c11 = c3 > c1
+# print(f"c3 > c1 {c11}")
+# c11 = c3 >= c1
+# print(f"c3 >= c1 {c11}")
+# c11 = c3 < c1
+# print(f"c3 < c1 {c11}")
+# c11 = c3 <= c1
+# print(f"c3 <= c1 {c11}")
 
 # from random import choice, randint
 #
@@ -5577,6 +5577,168 @@ print(f"c3 <= c1 {c11}")
 # if __name__ == "__main__":
 #     main()
 
+from math import sqrt
+
+
+class Shape:
+    def __init__(self, a, b=None, c=None):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def perimetr(self):
+        if self.c == None:
+            if self.b == None:
+                return self.a * 4
+            else:
+                return (self.a + self.b) * 2
+        else:
+            return self.a + self.b + self.c
+
+    def squar(self):
+        if self.c == None:
+            if self.b == None:
+                return self.a * self.a
+            else:
+                return self.a * self.b
+        else:
+            p = (self.a + self.b + self.c) / 2
+            t = p * (p - self.a) * (p - self.b) * (p - self.c)
+            return round(sqrt(t), 2)
+
+    def show(self):
+        if self.c == None:
+            if self.b == None:
+                for h in range(self.a):
+                    print(f"*" * self.a)
+            else:
+                for k in range(self.a):
+                    print(f"*" * self.b)
+        else:
+            for t in range(self.b):
+                print((f"*" * (1 + 2 * t)).center(self.a, " "))
+
+    def info(self):
+        print(f"Площадь: {self.squar()}")
+        print(f"Периметр: {self.perimetr()}")
+        self.show()
+
+
+class Square(Shape):
+    def __init__(self, a, color):
+        super().__init__(a)
+        self.color = color
+
+    def info(self):
+        print("Квадрат".center(13, '='))
+        print(f"Сторона: {self.a}")
+        print(f"Цвет: {self.color}")
+        super().info()
+
+
+
+class Rectangle(Shape):
+    def __init__(self, a, b, color):
+        super().__init__(a, b)
+        self.color = color
+
+    def info(self):
+        print()
+        print("Прямоугольник".center(20, '='))
+        print(f"Длина: {self.a}")
+        print(f"Ширина: {self.b}")
+        print(f"Цвет: {self.color}")
+        super().info()
+
+
+
+class Triangle(Shape):
+    def __init__(self, a, b, с, color):
+        super().__init__(a, b, с)
+        self.color = color
+
+    def info(self):
+        print()
+        print(' Треугольник '.center(24, '='))
+        print(f"Сторона 1: {self.a}")
+        print(f"Сторона 2: {self.b}")
+        print(f"Сторона 3: {self.c}")
+        print(f"Цвет: {self.color}")
+        super().info()
+
+s = (
+    Square(3, "red"),
+    Rectangle(3, 7, "green"),
+    Triangle(11, 6, 6, "yellow"),
+     )
+for i in s:
+    i.info()
+
+
+# class Rectangle(Shape):
+#     def __init__(self, a, b):
+#         super().__init__(a, b)
+#
+#     def info(self):
+#
+#
+# class Triangle(Shape):
+#     def __init__(self, a, b, c):
+#         super().__init__(a, b, c)
+
+# class Human:
+#     def __init__(self, surname, name, age):
+#         self.surname = surname
+#         self.name = name
+#         self.age = age
+#
+#     def info(self):
+#         print(f"{self.surname} {self.name} {self.age}", end=' ')
+#
+#
+# class Student(Human):
+#     def __init__(self, surname, name, age, speciality, group, rating):
+#         super().__init__(surname, name, age)
+#         self.speciality = speciality
+#         self.group = group
+#         self.rating = rating
+#
+#     def info(self):
+#         super().info()
+#         print(f"{self.speciality} {self.group} {self.rating}", end=" ")
+#
+#
+# class Teacher(Human):
+#     def __init__(self, surname, name, age, speciality, experience):
+#         super().__init__(surname, name, age)
+#         self.speciality = speciality
+#         self.experience = experience
+#
+#     def info(self):
+#         super().info()
+#         print(f"\n{self.speciality} {self.experience}")
+#
+#
+# class Graduate(Student):
+#     def __init__(self, surname, name, age, speciality, group, rating, topic):
+#         super().__init__(surname, name, age, speciality, group, rating)
+#         self.topic = topic
+#
+#     def info(self):
+#         super().info()
+#         print(f"\n{self.topic}", end=' ')
+#
+# group = [
+#     Student("Батодалаев", "Даши", 16, "ГК", "Web_011", 5),
+#     Student("Загидуллин", "Линар", 32, "РПО", "PD_011", 5),
+#     Graduate("Шугани", "Сергей", 15, "РПО", "PD_011", 5, "Защита персональных данных"),
+#     Teacher("Даньшин", "Андрей", 38, "Астрофизика", 110),
+#     Student("Маркин", "Даниил", 17, "ГК", "Python_011", 5),
+#     Teacher("Башкиров", "Алексей", 45, "Разработка приложений", 20)
+#     ]
+#
+# for i in group:
+#     i.info()
 
 # Упаковка данных (сериализация)
 # Распаковка данных (дусуриализация)
