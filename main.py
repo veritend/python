@@ -5636,7 +5636,6 @@ class Square(Shape):
         super().info()
 
 
-
 class Rectangle(Shape):
     def __init__(self, a, b, color):
         super().__init__(a, b)
@@ -5649,7 +5648,6 @@ class Rectangle(Shape):
         print(f"Ширина: {self.b}")
         print(f"Цвет: {self.color}")
         super().info()
-
 
 
 class Triangle(Shape):
@@ -5665,6 +5663,7 @@ class Triangle(Shape):
         print(f"Сторона 3: {self.c}")
         print(f"Цвет: {self.color}")
         super().info()
+
 
 s = (
     Square(3, "red"),
@@ -5684,7 +5683,7 @@ for i in s:
 #
 # class Triangle(Shape):
 #     def __init__(self, a, b, c):
-#         super().__init__(a, b, c)
+#         super().__init__(a, b, c)git
 
 # class Human:
 #     def __init__(self, surname, name, age):
