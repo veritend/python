@@ -5692,46 +5692,46 @@
 #         print(f"{self.surname} {self.name} {self.age}", end=' ')
 #
 
-class Triangle:
-    @staticmethod
-    def verify_size(size):
-        if not isinstance(size, int) or size <= 0:
-            raise TypeError(f"Размер стороны должен быть целым и положительным")
-
-    def __set_name__(self, owner, name):
-        self.name = "_" + name
-
-    def __get__(self, instance, owner):
-        return getattr(instance, self.name)
-
-    def __set__(self, instance, value):
-        self.verify_size(value)
-        setattr(instance, self.name, value)
-
-
-class Sides:
-    a = Triangle()
-    b = Triangle()
-    c = Triangle()
-
-    def __init__(self, a, b, c):
-        self.a = a
-        self.b = b
-        self.c = c
-
-    def check(self):
-        if self.a + self.b > self.c and self.b + self.c > self.a and self.a + self.c > self.b:
-            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) существует.")
-        else:
-            print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) не существует.")
-
-
-s = Sides(1, 2, 3)
-print(s.c)
-print(s.__dict__)
-Sides(2, 5, 6).check()
-Sides(5, 2, 8).check()
-Sides(7, 3, 6).check()
+# class Triangle:
+#     @staticmethod
+#     def verify_size(size):
+#         if not isinstance(size, int) or size <= 0:
+#             raise TypeError(f"Размер стороны должен быть целым и положительным")
+#
+#     def __set_name__(self, owner, name):
+#         self.name = "_" + name
+#
+#     def __get__(self, instance, owner):
+#         return getattr(instance, self.name)
+#
+#     def __set__(self, instance, value):
+#         self.verify_size(value)
+#         setattr(instance, self.name, value)
+#
+#
+# class Sides:
+#     a = Triangle()
+#     b = Triangle()
+#     c = Triangle()
+#
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     def check(self):
+#         if self.a + self.b > self.c and self.b + self.c > self.a and self.a + self.c > self.b:
+#             print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) существует.")
+#         else:
+#             print(f"Треугольник со сторонами ({self.a}, {self.b}, {self.c}) не существует.")
+#
+#
+# s = Sides(1, 2, 3)
+# print(s.c)
+# print(s.__dict__)
+# Sides(2, 5, 6).check()
+# Sides(5, 2, 8).check()
+# Sides(7, 3, 6).check()
 
 #
 # class Student(Human):
@@ -5894,45 +5894,45 @@ Sides(7, 3, 6).check()
 # print(data1)
 
 
-# import json
-# from random import choice
-#
-#
-# def gen_person():
-#     name = ''
-#     tel = ''
-#
-#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'm', 'n', 'k']
-#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-#
-#     while len(name) != 7:
-#         name += choice(letters)
-#     # print(name)
-#
-#     while len(tel) != 10:
-#         tel += choice(nums)
-#     # print(tel)
-#     person = {
-#         'name': name,
-#         'tel': tel
-#     }
-#     return person
-#
-#
-# def write_json(person_dict):
-#     try:
-#         data = json.load(open('persons.json'))
-#     except FileNotFoundError:
-#         data = []
-#
-#     data.append(person_dict)
-#     with open('persons.json', 'w') as f:
-#         json.dump(data, f, indent=2)
-#
-#
-# # person = []
-# for i in range(5):
-#     write_json(gen_person())
+import json
+from random import choice
+
+
+def gen_person():
+    name = ''
+    tel = ''
+
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'm', 'n', 'k']
+    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+    while len(name) != 7:
+        name += choice(letters)
+    # print(name)
+
+    while len(tel) != 10:
+        tel += choice(nums)
+    # print(tel)
+    person = {
+        'name': name,
+        'tel': tel
+    }
+    return person, tel
+
+
+def write_json(person_dict, num):
+    try:
+        data = json.load(open('persons1.json'))
+    except FileNotFoundError:
+        data = {}
+
+    data[num] = person_dict
+    with open('persons1.json', 'w') as f:
+        json.dump(data, f, indent=2)
+
+
+for i in range(5):
+    print(i)
+    write_json(gen_person()[0], gen_person()[1])
 
 
 # for i in range(5):
@@ -6810,6 +6810,4 @@ Sides(7, 3, 6).check()
 # env = Environment(loader=file_loader)
 #
 # tm = env.get_template('about.html')
-# msg = tm.render(list_table=subs)
-#
-# print(msg)
+# msg = tm.render(list_ta
