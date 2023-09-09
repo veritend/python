@@ -6244,46 +6244,46 @@
 # if __name__ == '__main__':
 #     main()
 
-import requests
-from bs4 import BeautifulSoup
-import re
-import csv
-
-
-def get_html(url):
-    res = requests.get(url)
-    res.encoding = 'utf-8'
-    return res.text
-
-
-def write_csv(data):
-    with open('pars.csv', 'a') as f:
-        writer = csv.writer(f, delimiter=';', lineterminator='\r')
-        writer.writerow((data['name'], data['tip'], data['t']))
-
-
-def get_data(html):
-    soup = BeautifulSoup(html, "lxml")
-    p1 = soup.find_all('div', class_='hide-header section')[0]
-    texts = p1.find_all('div', class_='section')
-    for text in texts:
-        name = text.find('h2').text
-        tip = text.find('p').text
-        lis = text.find_all('li', class_='toctree-l1')
-        for li in lis:
-            t = li.find('a', class_="reference internal").text
-            uls = li.find_all('li', class_='toctree-l2')
-            data = {'name': name, 'tip': tip, 't': t}
-            write_csv(data)
-
-
-def main():
-    url = "https://flask.palletsprojects.com/en/2.0.x/"
-    get_data(get_html(url))
-
-
-if __name__ == '__main__':
-    main()
+# import requests
+# from bs4 import BeautifulSoup
+# import re
+# import csv
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     res.encoding = 'utf-8'
+#     return res.text
+#
+#
+# def write_csv(data):
+#     with open('pars.csv', 'a') as f:
+#         writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#         writer.writerow((data['name'], data['tip'], data['t']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     p1 = soup.find_all('div', class_='hide-header section')[0]
+#     texts = p1.find_all('div', class_='section')
+#     for text in texts:
+#         name = text.find('h2').text
+#         tip = text.find('p').text
+#         lis = text.find_all('li', class_='toctree-l1')
+#         for li in lis:
+#             t = li.find('a', class_="reference internal").text
+#             uls = li.find_all('li', class_='toctree-l2')
+#             data = {'name': name, 'tip': tip, 't': t}
+#             write_csv(data)
+#
+#
+# def main():
+#     url = "https://flask.palletsprojects.com/en/2.0.x/"
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
 # import requests
@@ -6446,16 +6446,16 @@ if __name__ == '__main__':
 # if __name__ == '__main__':
 #     main()
 
-# from parsers import Parser
-#
-#
-# def main():
-#     pars = Parser("https://www.ixbt.com/live/index/news/", "news.txt")
-#     pars.run()
-#
-#
-# if __name__ == '__main__':
-#     main()
+from parsers import Parser
+
+
+def main():
+    pars = Parser("https://www.ixbt.com/live/index/top/#", "news2.txt")
+    pars.run()
+
+
+if __name__ == '__main__':
+    main()
 
 # import socket
 #
