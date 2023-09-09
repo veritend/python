@@ -5894,45 +5894,45 @@
 # print(data1)
 
 
-import json
-from random import choice
-
-
-def gen_person():
-    name = ''
-    tel = ''
-
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'm', 'n', 'k']
-    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-
-    while len(name) != 7:
-        name += choice(letters)
-    # print(name)
-
-    while len(tel) != 10:
-        tel += choice(nums)
-    # print(tel)
-    person = {
-        'name': name,
-        'tel': tel
-    }
-    return person, tel
-
-
-def write_json(person_dict, num):
-    try:
-        data = json.load(open('persons1.json'))
-    except FileNotFoundError:
-        data = {}
-
-    data[num] = person_dict
-    with open('persons1.json', 'w') as f:
-        json.dump(data, f, indent=2)
-
-
-for i in range(5):
-    print(i)
-    write_json(gen_person()[0], gen_person()[1])
+# import json
+# from random import choice
+#
+#
+# def gen_person():
+#     name = ''
+#     tel = ''
+#
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'm', 'n', 'k']
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#     # print(name)
+#
+#     while len(tel) != 10:
+#         tel += choice(nums)
+#     # print(tel)
+#     person = {
+#         'name': name,
+#         'tel': tel
+#     }
+#     return person, tel
+#
+#
+# def write_json(person_dict, num):
+#     try:
+#         data = json.load(open('persons1.json'))
+#     except FileNotFoundError:
+#         data = {}
+#
+#     data[num] = person_dict
+#     with open('persons1.json', 'w') as f:
+#         json.dump(data, f, indent=2)
+#
+#
+# for i in range(5):
+#     print(i)
+#     write_json(gen_person()[0], gen_person()[1])
 
 
 # for i in range(5):
@@ -6244,6 +6244,47 @@ for i in range(5):
 # if __name__ == '__main__':
 #     main()
 
+import requests
+from bs4 import BeautifulSoup
+import re
+import csv
+
+
+def get_html(url):
+    res = requests.get(url)
+    res.encoding = 'utf-8'
+    return res.text
+
+
+def write_csv(data):
+    with open('pars.csv', 'a') as f:
+        writer = csv.writer(f, delimiter=';', lineterminator='\r')
+        writer.writerow((data['name'], data['tip'], data['t']))
+
+
+def get_data(html):
+    soup = BeautifulSoup(html, "lxml")
+    p1 = soup.find_all('div', class_='hide-header section')[0]
+    texts = p1.find_all('div', class_='section')
+    for text in texts:
+        name = text.find('h2').text
+        tip = text.find('p').text
+        lis = text.find_all('li', class_='toctree-l1')
+        for li in lis:
+            t = li.find('a', class_="reference internal").text
+            uls = li.find_all('li', class_='toctree-l2')
+            data = {'name': name, 'tip': tip, 't': t}
+            write_csv(data)
+
+
+def main():
+    url = "https://flask.palletsprojects.com/en/2.0.x/"
+    get_data(get_html(url))
+
+
+if __name__ == '__main__':
+    main()
+
 
 # import requests
 # from bs4 import BeautifulSoup
@@ -6289,6 +6330,51 @@ for i in range(5):
 # if __name__ == '__main__':
 #     main()
 
+
+# import requests
+# from bs4 import BeautifulSoup
+# import re
+# import csv
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# def refined(s):
+#     return re.sub(r'\D+', '', s)
+#
+#
+# def write_csv(data):
+#     with open('flask.csv', 'a') as f:
+#         writer = csv.writer(f, delimiter=';', lineterminator='\r')
+#
+#         writer.writerow((data['name'], data['url'], data['rating']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     p1 = soup.find_all('section', class_='hide-header section')[1]
+#     plugins = p1.find_all('article')
+#     print(plugins)
+#     # for plugin in plugins:
+#     #     name = plugin.find('h1').text
+#         # url = plugin.find('h3').find('a').get('href')
+#         # rating = plugin.find('span', class_='rating-count').find('a').text
+#         # r = refined(rating)
+#
+#         # data = {'name': name, 'url': url, 'rating': r}
+#         # write_csv(data)
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/plugins/"
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 # import requests
 # from bs4 import BeautifulSoup
