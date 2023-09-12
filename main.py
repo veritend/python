@@ -6446,16 +6446,16 @@
 # if __name__ == '__main__':
 #     main()
 
-from parsers import Parser
-
-
-def main():
-    pars = Parser("https://www.ixbt.com/live/index/top/#", "news2.txt")
-    pars.run()
-
-
-if __name__ == '__main__':
-    main()
+# from parsers import Parser
+#
+#
+# def main():
+#     pars = Parser("https://www.ixbt.com/live/index/top/#", "news2.txt")
+#     pars.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 # import socket
 #
@@ -6585,7 +6585,7 @@ if __name__ == '__main__':
 
 
 # import sqlite3
-
+#
 # cars = [
 #     ('BMW', 54000),
 #     ('Chevrolet', 51000)
@@ -6617,7 +6617,7 @@ if __name__ == '__main__':
 #     cur.execute("INSERT INTO cars VALUES(2, 'Renault', 22000")
 #     cur.execute("INSERT INTO cars VALUES(3, 'Renault', 22000")
 #     cur.execute("INSERT INTO cars VALUES(4, 'Renault', 22000")
-
+#
 # con = None
 # try:
 #     con = sqlite3.connect('cars.db')
@@ -6640,8 +6640,8 @@ if __name__ == '__main__':
 # finally:
 #     if con:
 #         con.close()
-
-
+#
+#
 # with sqlite3.connect("cars.db") as con:
 #     con.row_factory = sqlite3.Row
 #     cur = con.cursor()
@@ -6663,15 +6663,15 @@ if __name__ == '__main__':
 #
 #     for res in cur:
 #         print(res['model'], res['price'])
-
-
+#
+#
 # with sqlite3.connect('cars.db') as con:
 #     cur = con.cursor()
 #
 #     with open('sql_dump.sql', 'w') as f:
 #         for sql in con.iterdump():
 #             f.write(sql)
-
+#
 # with sqlite3.connect('cars_dump.db') as con:
 #     cur = con.cursor()
 #
@@ -6679,6 +6679,27 @@ if __name__ == '__main__':
 #         sql = f.read()
 #         cur.executescript(sql)
 
+
+import sqlite3
+
+headphones = [
+    ('Razor', 22000),
+    ('Bloody', 12000),
+    ('Sennheiser', 15000),
+]
+
+with sqlite3.connect("headphones.db") as con:
+    cur = con.cursor()
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS headphones(
+        headphones_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        model TEXT,
+        price INTEGER
+    )
+    """)
+
+    for headphone in headphones:
+        cur.execute("INSERT INTO headphones VALUES(NULL, ?, ?)", headphone)
 
 # ORM - SQLAlchemy
 
