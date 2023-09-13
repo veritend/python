@@ -6680,26 +6680,26 @@
 #         cur.executescript(sql)
 
 
-import sqlite3
-
-headphones = [
-    ('Razor', 22000),
-    ('Bloody', 12000),
-    ('Sennheiser', 15000),
-]
-
-with sqlite3.connect("headphones.db") as con:
-    cur = con.cursor()
-    cur.execute("""
-    CREATE TABLE IF NOT EXISTS headphones(
-        headphones_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        model TEXT,
-        price INTEGER
-    )
-    """)
-
-    for headphone in headphones:
-        cur.execute("INSERT INTO headphones VALUES(NULL, ?, ?)", headphone)
+# import sqlite3
+#
+# headphones = [
+#     ('Razor', 22000),
+#     ('Bloody', 12000),
+#     ('Sennheiser', 15000),
+# ]
+#
+# with sqlite3.connect("headphones.db") as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS headphones(
+#         headphones_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         model TEXT,
+#         price INTEGER
+#     )
+#     """)
+#
+#     for headphone in headphones:
+#         cur.execute("INSERT INTO headphones VALUES(NULL, ?, ?)", headphone)
 
 # ORM - SQLAlchemy
 
@@ -6763,6 +6763,20 @@ with sqlite3.connect("headphones.db") as con:
 #     i = session.query(Lesson).filter(Lesson.lesson_title == "Физика").first()
 #     session.delete(i)
 #     session.commit()
+
+# from sqlalchemy import create_engine
+# from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import sessionmaker
+#
+# DATABASE_NAME = 'headphones'
+#
+# engine = create_engine(f"sqlite:///{DATABASE_NAME}")
+# Session = sessionmaker(bind=engine)
+# Base = declarative_base()
+#
+#
+# def create_db():
+#     Base.metadata.create_all(engine)
 
 # Jinja
 # pip install jinja
@@ -6918,3 +6932,44 @@ with sqlite3.connect("headphones.db") as con:
 #
 # tm = env.get_template('about.html')
 # msg = tm.render(list_ta
+
+
+# from jinja2 import Template
+#
+# html = """
+# {% macro text_input(name, placeholder, type='text') %}
+#     <input type="{{ type }}" name="{{ name }}" placeholder="{{ placeholder }}">
+# {% endmacro %}
+#
+# <p>{{ text_input('firstname', 'Имя') }}</p>
+# <p>{{ text_input('lastname', 'Фамилия') }}</p>
+# <p>{{ text_input('address', 'Адрес') }}</p>
+# <p>{{ text_input('phone', 'Телефон', 'tel') }}</p>
+# <p>{{ text_input('email', 'Почта', 'email') }}</p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)
+
+
+# from jinja2 import Template
+#
+# html = """
+# {% macro a_text(href, placeholder, class) %}
+#     <a href="{{ href }} class="{{ class }}"> placeholder="{{ placeholder }}"</a>
+# {% endmacro %}
+# <ul>
+# <li>{{ a_text('/index', 'Главная', 'active') }}</li>
+# <li>{{ a_text('/news', 'Новости') }}</li>
+# <li>{{ a_text('/about', 'О компании') }}</li>
+# <li>{{ a_text('/shop', 'Магазин') }}</li>
+# <li>{{ a_text('/contacts', 'Контакты') }}</li>
+# </ul>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)

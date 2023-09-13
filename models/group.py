@@ -9,7 +9,7 @@ class Group(Base):
 
     id = Column(Integer, primary_key=True)
     group_name = Column(String(250), nullable=False)
-    student = relationship('Student')
+    student = relationship('student')
 
     def __repr__(self):
         return f"Группа (ID: {self.id}, Название {self.group_name})"
